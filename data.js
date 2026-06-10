@@ -79,11 +79,58 @@ const WORLD_CUP_DATA = {
 };
 
 // How many of the 48 spots have been claimed
-const SPOTS_TAKEN = 0;
+const SPOTS_TAKEN = 48;
 
-// Draw results — populate once Megg has the list of names.
-// Format: { "Team Name": "Owner Name", ... }
-const DEFAULT_ASSIGNMENTS = {};
+const DEFAULT_ASSIGNMENTS = {
+    "Algeria": "Alexj B",
+    "Argentina": "Phil R",
+    "Australia": "Darren J",
+    "Austria": "Mike F",
+    "Belgium": "Linda O",
+    "Bosnia and Herzegovina": "Mitch G",
+    "Brazil": "Jenna O",
+    "Canada": "Sai V",
+    "Cape Verde": "Szymon Z",
+    "Colombia": "Isabella N",
+    "Croatia": "Simon T",
+    "Curaçao": "Luis G",
+    "Czechia": "Anya T",
+    "DR Congo": "Darren H",
+    "Ecuador": "Martyn S",
+    "Egypt": "Rachel D",
+    "England": "Darren J",
+    "France": "Alan B",
+    "Germany": "Anca I",
+    "Ghana": "Lesley B",
+    "Haiti": "Chris G",
+    "IR Iran": "Martyn B",
+    "Iraq": "Beata B",
+    "Ivory Coast": "Ethan W",
+    "Japan": "Nectorias T",
+    "Jordan": "Ant S",
+    "Mexico": "Ellie R",
+    "Morocco": "Bozena M",
+    "Netherlands": "Karl R",
+    "New Zealand": "Ricardo N",
+    "Norway": "Martyn B",
+    "Panama": "Aiden M",
+    "Paraguay": "Aiden M",
+    "Portugal": "Nicola R",
+    "Qatar": "Tina L",
+    "Saudi Arabia": "Rachel D",
+    "Scotland": "Zeray H",
+    "Senegal": "Leo",
+    "South Africa": "Luke M",
+    "South Korea": "Marta J",
+    "Spain": "Mitch G",
+    "Sweden": "Shona H",
+    "Switzerland": "Tina L",
+    "Tunisia": "Emma P",
+    "Türkiye": "Kayliegh R",
+    "United States": "Aaron W",
+    "Uruguay": "Ethan W",
+    "Uzbekistan": "Matt D"
+};
 
 // Schedule and results loaded from JSON files by loadLiveData()
 let SCHEDULE = [];
