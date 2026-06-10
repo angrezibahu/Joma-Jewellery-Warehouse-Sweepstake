@@ -27,25 +27,25 @@
        Original colour names are kept so the rest of the stylesheet doesn't
        need to be renamed: --gold is now the primary accent (white), the
        "green" / "blue" variables are repurposed as mid-greys, etc. */
-    --gold: #ffffff;
-    --silver: #c0c0c0;
-    --bronze: #808080;
+    --gold: #b8860b;
+    --silver: #808080;
+    --bronze: #8b5e3c;
     --worst: #4a4a4a;
-    --green-pitch: #3a3a3a;
-    --green-dark: #1a1a1a;
-    --green-light: #888888;
-    --blue-sky: #555555;
-    --red-card: #b0b0b0;
-    --bg-dark: #000000;
-    --bg-card: #161616;
-    --bg-card-hover: #222222;
-    --text-primary: #ffffff;
-    --text-secondary: #d0d0d0;
+    --green-pitch: #2e7d32;
+    --green-dark: #1b5e20;
+    --green-light: #4caf50;
+    --blue-sky: #1976d2;
+    --red-card: #c62828;
+    --bg-dark: #F7F4EF;
+    --bg-card: #ffffff;
+    --bg-card-hover: #ede9e3;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
     --text-muted: #888888;
-    --alive: #ffffff;
-    --eliminated: #555555;
-    --unknown: #777777;
-    --kitty: #888888;
+    --alive: #2e7d32;
+    --eliminated: #b0b0b0;
+    --unknown: #999999;
+    --kitty: #7B1FA2;
 
     /* Quasimoda for headings/display, Times New Roman for body. */
     --font-display: 'Quasimoda', 'Mulish', 'Helvetica Neue', sans-serif;
@@ -84,7 +84,7 @@ h1, h2, h3 {
 
 /* ---- Hero ---- */
 .hero {
-    background: linear-gradient(135deg, var(--bg-dark) 0%, var(--green-dark) 50%, var(--bg-dark) 100%);
+    background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #1b5e20 100%);
     padding: 3rem 1rem 2rem;
     text-align: center;
     position: relative;
@@ -125,19 +125,19 @@ h1, h2, h3 {
 
 .hero h1 {
     font-size: clamp(2.5rem, 8vw, 5rem);
-    color: var(--text-primary);
+    color: #ffffff;
     text-shadow: 0 2px 6px rgba(0,0,0,0.6);
     line-height: 1.1;
 }
 
 .hero h2 {
     font-size: clamp(1.5rem, 5vw, 3rem);
-    color: var(--text-primary);
+    color: #ffffff;
     margin-bottom: 0.25rem;
 }
 
 .tagline {
-    color: var(--green-light);
+    color: #c8e6c9;
     font-size: 1.2rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -161,24 +161,23 @@ h1, h2, h3 {
 }
 
 .prize.gold {
-    background: linear-gradient(135deg, #ffffff, #d8d8d8);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, #ffd700, #b8860b);
+    color: #1a1a1a;
 }
 
 .prize.silver {
-    background: linear-gradient(135deg, #c8c8c8, #909090);
-    color: #0a0a0a;
+    background: linear-gradient(135deg, #c0c0c0, #808080);
+    color: #1a1a1a;
 }
 
 .prize.bronze {
-    background: linear-gradient(135deg, #808080, #5a5a5a);
+    background: linear-gradient(135deg, #cd7f32, #8b5e3c);
     color: #ffffff;
 }
 
 .prize.worst {
-    background: linear-gradient(135deg, #3a3a3a, #1a1a1a);
+    background: linear-gradient(135deg, #4a4a4a, #2a2a2a);
     color: #ffffff;
-    border: 1px solid rgba(255,255,255,0.15);
 }
 
 .cost-line {
@@ -195,7 +194,7 @@ h1, h2, h3 {
     position: sticky;
     top: 0;
     z-index: 100;
-    border-bottom: 2px solid rgba(255,255,255,0.1);
+    border-bottom: 2px solid rgba(0,0,0,0.1);
 }
 
 .tab {
@@ -278,15 +277,15 @@ h1, h2, h3 {
 }
 
 .status-badge.pending {
-    background: rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.05);
     color: var(--text-secondary);
-    border: 1px solid rgba(255,255,255,0.2);
+    border: 1px solid rgba(0,0,0,0.15);
 }
 
 .status-badge.complete {
-    background: rgba(255,255,255,0.18);
+    background: rgba(46,125,50,0.1);
     color: var(--text-primary);
-    border: 1px solid rgba(255,255,255,0.35);
+    border: 1px solid rgba(46,125,50,0.3);
 }
 
 /* ---- Spots badge (hero corner) ---- */
@@ -294,8 +293,8 @@ h1, h2, h3 {
     position: absolute;
     top: 1rem;
     right: 1rem;
-    background: rgba(0,0,0,0.35);
-    border: 2px solid var(--gold);
+    background: rgba(0,0,0,0.4);
+    border: 2px solid #ffd700;
     border-radius: 14px;
     padding: 0.5rem 0.9rem;
     text-align: center;
@@ -309,7 +308,7 @@ h1, h2, h3 {
     font-size: 1.6rem;
     line-height: 1;
     letter-spacing: 1px;
-    color: var(--gold);
+    color: #ffd700;
 }
 
 .spots-badge-divider {
@@ -321,7 +320,7 @@ h1, h2, h3 {
     font-size: 0.7rem;
     text-transform: uppercase;
     letter-spacing: 1px;
-    color: var(--text-secondary);
+    color: #d0d0d0;
     margin-top: 0.15rem;
 }
 
@@ -336,17 +335,18 @@ h1, h2, h3 {
     background: var(--bg-card);
     border-radius: 16px;
     overflow: hidden;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(0,0,0,0.08);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .group-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
 }
 
 .group-header {
-    background: linear-gradient(135deg, var(--green-dark), var(--blue-sky));
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    color: #ffffff;
     padding: 0.75rem 1rem;
     font-family: var(--font-display);
     font-size: 1.3rem;
@@ -357,7 +357,7 @@ h1, h2, h3 {
     display: flex;
     align-items: center;
     padding: 0.6rem 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
     transition: background 0.2s;
 }
 
@@ -428,7 +428,7 @@ h1, h2, h3 {
 
 .stage-btn {
     background: var(--bg-card);
-    border: 1px solid rgba(255,255,255,0.1);
+    border: 1px solid rgba(0,0,0,0.1);
     color: var(--text-secondary);
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -462,7 +462,7 @@ h1, h2, h3 {
     padding: 0.75rem 1rem;
     background: var(--bg-card);
     border-radius: 10px;
-    border: 1px solid rgba(255,255,255,0.08);
+    border: 1px solid rgba(0,0,0,0.08);
     transition: all 0.3s;
     gap: 0.75rem;
 }
@@ -515,7 +515,7 @@ h1, h2, h3 {
     text-align: center;
     max-width: 500px;
     margin: 0 auto 2rem;
-    border: 2px solid rgba(255,255,255,0.2);
+    border: 2px solid rgba(0,0,0,0.1);
 }
 
 .payment-icon {
@@ -530,7 +530,7 @@ h1, h2, h3 {
 }
 
 .bank-details {
-    background: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.04);
     border-radius: 12px;
     padding: 1.25rem;
     margin-bottom: 1rem;
@@ -540,7 +540,7 @@ h1, h2, h3 {
     display: flex;
     justify-content: space-between;
     padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .detail-row:last-child {
@@ -596,22 +596,22 @@ h1, h2, h3 {
 }
 
 .pot-bar.gold {
-    background: linear-gradient(90deg, #ffffff, #d8d8d8);
-    color: #0a0a0a;
+    background: linear-gradient(90deg, #ffd700, #b8860b);
+    color: #1a1a1a;
 }
 
 .pot-bar.silver {
-    background: linear-gradient(90deg, #c8c8c8, #909090);
-    color: #0a0a0a;
+    background: linear-gradient(90deg, #c0c0c0, #808080);
+    color: #1a1a1a;
 }
 
 .pot-bar.bronze {
-    background: linear-gradient(90deg, #808080, #5a5a5a);
+    background: linear-gradient(90deg, #cd7f32, #8b5e3c);
     color: #ffffff;
 }
 
 .pot-bar.worst {
-    background: linear-gradient(90deg, #3a3a3a, #1a1a1a);
+    background: linear-gradient(90deg, #4a4a4a, #2a2a2a);
     color: #ffffff;
 }
 
@@ -623,8 +623,8 @@ h1, h2, h3 {
 /* ---- Admin ---- */
 .admin-panel {
     margin-top: 2rem;
-    background: rgba(255,255,255,0.04);
-    border: 2px dashed rgba(255,255,255,0.25);
+    background: rgba(0,0,0,0.03);
+    border: 2px dashed rgba(0,0,0,0.15);
     border-radius: 16px;
     padding: 1.5rem;
 }
@@ -645,9 +645,9 @@ h1, h2, h3 {
 .admin-controls textarea {
     width: 100%;
     min-height: 120px;
-    background: var(--bg-dark);
+    background: #ffffff;
     color: var(--text-primary);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 0.75rem;
     font-family: var(--font-body);
@@ -706,9 +706,9 @@ h1, h2, h3 {
 }
 
 .result-controls select {
-    background: var(--bg-dark);
+    background: #ffffff;
     color: var(--text-primary);
-    border: 1px solid rgba(255,255,255,0.15);
+    border: 1px solid rgba(0,0,0,0.15);
     border-radius: 8px;
     padding: 0.5rem;
     font-family: var(--font-body);
@@ -731,7 +731,7 @@ h1, h2, h3 {
 }
 
 .slot-name, .slot-team {
-    background: var(--bg-dark);
+    background: #ffffff;
     padding: 0.75rem 1.5rem;
     border-radius: 10px;
     min-width: 150px;
@@ -777,7 +777,7 @@ footer {
     text-align: center;
     padding: 2rem 1rem;
     color: var(--text-muted);
-    border-top: 1px solid rgba(255,255,255,0.05);
+    border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 footer .small {
@@ -1165,7 +1165,7 @@ footer .small {
 }
 
 .fx-side.is-clickable:hover {
-    background: rgba(255,255,255,0.08);
+    background: rgba(0,0,0,0.05);
 }
 
 .fx-side.is-clickable:hover .fx-team-name:not(.eliminated) {
@@ -1220,11 +1220,11 @@ footer .small {
     color: var(--gold);
     margin: 1.5rem 0 0.6rem;
     padding-bottom: 0.3rem;
-    border-bottom: 2px solid rgba(255, 215, 0, 0.25);
+    border-bottom: 2px solid rgba(184, 134, 11, 0.3);
 }
 .fx-match {
     background: var(--bg-card);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-left: 4px solid var(--unknown);
     border-radius: 10px;
     padding: 0.6rem 0.85rem;
@@ -1269,7 +1269,7 @@ footer .small {
 .fx-owner {
     font-size: 0.72rem;
     color: var(--text-muted);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 0, 0, 0.05);
     padding: 0.05rem 0.4rem;
     border-radius: 999px;
     flex-shrink: 0;
