@@ -1,0 +1,28 @@
+{
+  "name": "Joma Jewellery World Cup Sweepstake",
+  "short_name": "Joma Sweepstake",
+  "description": "Joma Jewellery World Cup 2026 sweepstake - curated by Megg.",
+  "id": "/",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "lang": "en-GB",
+  "categories": ["sports", "entertainment"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icon-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ]
+}

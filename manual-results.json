@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional manual overrides. Key = match number (string), value = \"home-away\" score from the perspective of the home team in schedule.json, e.g. \"2\": \"1-0\". These win over the API.",
+  "_example_disabled": "2-1"
+}

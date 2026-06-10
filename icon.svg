@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Background: monochrome rounded square matching the app theme -->
+  <defs>
+    <radialGradient id="bg" cx="35%" cy="30%" r="85%">
+      <stop offset="0%" stop-color="#2a2a2a"/>
+      <stop offset="60%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </radialGradient>
+    <radialGradient id="ballShade" cx="38%" cy="32%" r="75%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="78%" stop-color="#f2f2f2"/>
+      <stop offset="100%" stop-color="#cfd4da"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="512" height="512" rx="112" fill="url(#bg)"/>
+
+  <!-- Classic football (soccer ball) -->
+  <g transform="translate(256 256)">
+    <circle r="168" fill="url(#ballShade)" stroke="#1b1b1b" stroke-width="6"/>
+
+    <!-- Central black pentagon -->
+    <polygon points="0,-58 55,-18 34,47 -34,47 -55,-18"
+             fill="#16181c" stroke="#16181c" stroke-width="2"/>
+
+    <!-- Outer pentagons (5, arranged around the centre) -->
+    <g fill="#16181c">
+      <polygon points="0,-150 36,-126 25,-86 -25,-86 -36,-126"/>
+      <polygon points="143,-46 152,-3 118,28 80,2 92,-40"/>
+      <polygon points="88,121 51,98 70,55 113,66 116,107"/>
+      <polygon points="-88,121 -116,107 -113,66 -70,55 -51,98"/>
+      <polygon points="-143,-46 -92,-40 -80,2 -118,28 -152,-3"/>
+    </g>
+
+    <!-- Seams connecting central pentagon to the outer ones -->
+    <g stroke="#16181c" stroke-width="9" stroke-linecap="round">
+      <line x1="0" y1="-58" x2="0" y2="-86"/>
+      <line x1="55" y1="-18" x2="80" y2="2"/>
+      <line x1="34" y1="47" x2="51" y2="98"/>
+      <line x1="-34" y1="47" x2="-51" y2="98"/>
+      <line x1="-55" y1="-18" x2="-80" y2="2"/>
+    </g>
+
+    <!-- Seams reaching toward the ball edge -->
+    <g stroke="#16181c" stroke-width="9" stroke-linecap="round">
+      <line x1="25" y1="-86" x2="36" y2="-126"/>
+      <line x1="-25" y1="-86" x2="-36" y2="-126"/>
+      <line x1="80" y1="2" x2="118" y2="28"/>
+      <line x1="92" y1="-40" x2="118" y2="-46"/>
+      <line x1="113" y1="66" x2="116" y2="107"/>
+      <line x1="70" y1="55" x2="51" y2="98"/>
+      <line x1="-70" y1="55" x2="-51" y2="98"/>
+      <line x1="-113" y1="66" x2="-116" y2="107"/>
+      <line x1="-92" y1="-40" x2="-118" y2="-46"/>
+      <line x1="-80" y1="2" x2="-118" y2="28"/>
+    </g>
+  </g>
+</svg>
