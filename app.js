@@ -172,10 +172,13 @@ function filterTeamsByStage(teams, viewStage) {
 
     if (viewStage === "groups") return teams;
 
+    // A team's stage is the furthest round it reached, so this also keeps
+    // teams knocked out at this round visible (greyed) — but not teams that
+    // never got this far.
     return teams.filter(t => {
         const teamStage = getStage(t.name);
         const teamIdx = stageOrder.indexOf(teamStage);
-        return teamIdx >= viewIdx || isEliminated(t.name);
+        return teamIdx >= viewIdx;
     });
 }
 
@@ -274,9 +277,13 @@ function renderFixtures() {
             const home = fixtureSide(m, "home");
             const away = fixtureSide(m, "away");
 
+            // Coerce scores to numbers so nothing from results.json can ever
+            // reach innerHTML as markup.
+            const hs = rec.homeScore != null ? Number(rec.homeScore) : NaN;
+            const as = rec.awayScore != null ? Number(rec.awayScore) : NaN;
             let middle, statusClass;
-            if (finished && rec.homeScore != null) {
-                middle = `<span class="fx-score">${rec.homeScore} – ${rec.awayScore}</span>`;
+            if (finished && Number.isFinite(hs) && Number.isFinite(as)) {
+                middle = `<span class="fx-score">${hs} – ${as}</span>`;
                 statusClass = "done";
             } else if (due) {
                 middle = `<span class="fx-vs">v</span>`;
@@ -327,8 +334,8 @@ function updateDrawStatus() {
 function updateBankDetails() {
     const sortEl = document.getElementById("sort-code");
     const accEl = document.getElementById("account-no");
-    if (sortEl) sortEl.textContent = state.bankSortCode;
-    if (accEl) accEl.textContent = state.bankAccountNo;
+    if (sortEl && state.bankSortCode) sortEl.textContent = state.bankSortCode;
+    if (accEl && state.bankAccountNo) accEl.textContent = state.bankAccountNo;
 }
 
 // ---- Admin ----
@@ -548,7 +555,7 @@ function setupShare() {
             "Curated by Megg. Are you in? " +
             url
         );
-        window.open(`https://wa.me/?text=${text}`, "_blank");
+        window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
     });
 }
 
@@ -755,8 +762,10 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+// Escapes quotes as well as &<>, so it's safe inside HTML attributes too
+// (the old element-based trick left " and ' unescaped).
 function escapeHtml(str) {
-    const div = document.createElement("div");
-    div.textContent = str;
-    return div.innerHTML;
+    return String(str).replace(/[&<>"']/g, c => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+    }[c]));
 }

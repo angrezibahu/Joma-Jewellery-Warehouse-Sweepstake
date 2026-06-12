@@ -125,7 +125,11 @@ def fetch_api_matches():
     out = []
     for m in data.get("matches", []):
         ft = (m.get("score") or {}).get("fullTime") or {}
-        if ft.get("home") is None or ft.get("away") is None:
+        # Only accept sane integer scores: whatever lands in results.json ends
+        # up rendered on the website, so never persist arbitrary feed values.
+        if not (isinstance(ft.get("home"), int) and isinstance(ft.get("away"), int)):
+            continue
+        if ft["home"] < 0 or ft["away"] < 0 or ft["home"] > 99 or ft["away"] > 99:
             continue
         out.append({
             "home": (m.get("homeTeam") or {}).get("name"),
@@ -145,12 +149,14 @@ def apply_results(schedule, results):
     valid |= {m["away"] for m in schedule if not m["awayPlaceholder"]}
 
     api = fetch_api_matches()
-    # index API matches by frozenset of the two canonical team names
+    # Index API matches by the canonical team pair. The same two teams can meet
+    # twice in a tournament (group stage, then a knockout rematch), so keep a
+    # list per pair and let the lookup pick the right one by kickoff time.
     api_idx = {}
     for a in api:
         h, w = canon(a["home"], valid), canon(a["away"], valid)
         if h and w:
-            api_idx[frozenset((h, w))] = a
+            api_idx.setdefault(frozenset((h, w)), []).append(a)
 
     manual = load(MANUAL, {}) or {}
     now = now_utc()
@@ -168,19 +174,32 @@ def apply_results(schedule, results):
         home = rec.get("home")
         away = rec.get("away")
 
-        # 1) manual override wins, e.g. "2-1" (orientation = home-away of this match)
-        if no in manual and isinstance(manual[no], str) and "-" in manual[no]:
-            try:
-                hs, as_ = (int(x) for x in manual[no].split("-", 1))
-                _set_result(rec, hs, as_)
+        # 1) manual override wins, e.g. "2-1" (orientation = home-away of this
+        #    match). A knockout decided after a level score (extra time / pens)
+        #    can name the winner after a colon: "1-1:France".
+        if no in manual and isinstance(manual[no], str):
+            mm = re.fullmatch(r"\s*(\d{1,2})\s*-\s*(\d{1,2})\s*(?::\s*(.+?)\s*)?",
+                              manual[no])
+            if mm:
+                hs, as_ = int(mm.group(1)), int(mm.group(2))
+                manual_winner = None
+                if mm.group(3):
+                    w = canon(mm.group(3), valid)
+                    if w and w in (home, away):
+                        manual_winner = w
+                    else:
+                        print(f"Manual winner for match {no} ({mm.group(3)!r}) doesn't "
+                              f"match either side ({home!r} v {away!r}); skipping.")
+                        continue
+                _set_result(rec, hs, as_, manual_winner=manual_winner)
                 changed += 1
                 continue
-            except ValueError:
-                print(f"Bad manual result for match {no}: {manual[no]!r}")
+            print(f"Bad manual result for match {no}: {manual[no]!r}")
 
         # 2) API (only once both teams are known, i.e. not still a placeholder)
         if home and away:
-            a = api_idx.get(frozenset((home, away)))
+            candidates = api_idx.get(frozenset((home, away)), [])
+            a = _closest_api_match(candidates, m.get("kickoffUTC"))
             if a:
                 if canon(a["home"], valid) == home:
                     _set_result(rec, a["homeScore"], a["awayScore"], a.get("winner"))
@@ -192,7 +211,30 @@ def apply_results(schedule, results):
     return changed
 
 
-def _set_result(rec, home_score, away_score, api_winner=None, flip=False):
+def _closest_api_match(candidates, kickoff_iso):
+    """Pick the API record closest in kickoff time to this fixture (within 36h),
+    so a rematch between the same two teams can't pull the earlier game's score."""
+    if not candidates:
+        return None
+    try:
+        ko = parse_iso(kickoff_iso)
+    except (ValueError, TypeError):
+        return candidates[0] if len(candidates) == 1 else None
+    best, best_dt = None, None
+    for a in candidates:
+        try:
+            dt = abs((parse_iso(a.get("utcDate") or "") - ko).total_seconds())
+        except (ValueError, TypeError):
+            continue
+        if best is None or dt < best_dt:
+            best, best_dt = a, dt
+    if best is None:  # no candidate had a parseable date
+        return candidates[0] if len(candidates) == 1 else None
+    return best if best_dt <= 36 * 3600 else None
+
+
+def _set_result(rec, home_score, away_score, api_winner=None, flip=False,
+                manual_winner=None):
     rec["homeScore"] = home_score
     rec["awayScore"] = away_score
     rec["status"] = "FINISHED"
@@ -202,8 +244,11 @@ def _set_result(rec, home_score, away_score, api_winner=None, flip=False):
     elif away_score > home_score:
         rec["winner"] = rec.get("away")
     else:
-        # draw on the day -> knockout decided by ET/pens; trust the API's winner flag
-        if api_winner in ("HOME_TEAM", "AWAY_TEAM"):
+        # draw on the day -> knockout decided by ET/pens; a manual winner takes
+        # precedence, otherwise trust the API's winner flag
+        if manual_winner:
+            rec["winner"] = manual_winner
+        elif api_winner in ("HOME_TEAM", "AWAY_TEAM"):
             home_is = (api_winner == "HOME_TEAM") ^ flip
             rec["winner"] = rec.get("home") if home_is else rec.get("away")
         else:
@@ -281,6 +326,16 @@ def assign_thirds(third_slots, qualified_thirds):
     return result if bt(0) else {}
 
 
+def _other_side(rec, team):
+    """The opponent of `team` in a match record, or None if `team` isn't a side
+    (never guess: a bad winner value must not eliminate an arbitrary team)."""
+    if team == rec.get("home"):
+        return rec.get("away")
+    if team == rec.get("away"):
+        return rec.get("home")
+    return None
+
+
 def derive_state(schedule, results, prev):
     by_no = {m["match"]: m for m in schedule}
     teams = sorted({m["home"] for m in schedule if not m["homePlaceholder"]} |
@@ -343,7 +398,7 @@ def derive_state(schedule, results, prev):
             if not rec or rec["status"] != "FINISHED" or not rec.get("winner"):
                 return None
             win = rec["winner"]
-            loser = rec["home"] if win == rec["away"] else rec["away"]
+            loser = _other_side(rec, win)
             return win if kind == "W" else loser
         return None  # already a literal team name handled elsewhere
 
@@ -375,7 +430,7 @@ def derive_state(schedule, results, prev):
             # mark stage reached + eliminate the loser of a finished tie
             if rec["status"] == "FINISHED" and rec.get("winner"):
                 win = rec["winner"]
-                loser = rec["home"] if win == rec["away"] else rec["away"]
+                loser = _other_side(rec, win)
                 if m["stage"] != "third":
                     nxt = KO_NEXT_STAGE.get(m["stage"])
                     if nxt and stages.get(win) != nxt:
