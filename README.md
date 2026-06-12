@@ -45,7 +45,6 @@ Once the list of participants is ready:
     needed).
 - **Brand name / tagline / prizes**: in `index.html`, look for the
   `<header class="hero">` block.
-- **Share message**: in `app.js`, search for `setupShare`.
 
 ## Automated results
 
