@@ -200,9 +200,7 @@ function getStageName(stage) {
         final: "Final",
         winner: "WINNER!"
     };
-    // Unknown stage values come from fetched JSON / saved overrides, and the
-    // result is interpolated into innerHTML — never return them unescaped.
-    return names[stage] || escapeHtml(stage);
+    return Object.prototype.hasOwnProperty.call(names, stage) ? names[stage] : "Unknown stage";
 }
 
 // ---- Fixtures / internal calendar ----
