@@ -54,13 +54,15 @@ score as `"home-away"` from the home team's perspective:
 ```json
 {
   "1": "2-1",
-  "73": "0-0"
+  "73": "0-0",
+  "89": "1-1:France"
 }
 ```
 
-(For a knockout that finished level after 90 mins, the API's winner flag decides
-who progresses; for a hand-entered knockout score, enter the score that reflects
-the actual aggregate/decisive result.)
+For a knockout that finished level after 90 mins, the API's winner flag decides
+who progresses. For a hand-entered knockout score that finished level (decided
+in extra time / on penalties), add the winning team's name after a colon, e.g.
+`"1-1:France"` — the name must match one of the two sides of that match.
 
 ## A note on tiebreakers
 
