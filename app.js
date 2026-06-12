@@ -12,7 +12,6 @@ const TOTAL_SPOTS = 48;
 // ---- Init ----
 document.addEventListener("DOMContentLoaded", async () => {
     setupTabs();
-    setupShare();
     renderSpotsBadge();
     updateDrawStatus();
     updateBankDetails();
@@ -543,20 +542,6 @@ function advanceTeam() {
 
 function findTeam(name) {
     return getAllTeams().find(t => t.name === name);
-}
-
-// ---- Share ----
-function setupShare() {
-    document.getElementById("share-btn").addEventListener("click", () => {
-        const url = window.location.href.replace(/\?.*$/, '');
-        const text = encodeURIComponent(
-            "Joma Jewellery World Cup Sweepstake! " +
-            "Prizes: Winner £140, Runner-up £50, 3rd £25, Worst Team £25. " +
-            "Curated by Megg. Are you in? " +
-            url
-        );
-        window.open(`https://wa.me/?text=${text}`, "_blank", "noopener,noreferrer");
-    });
 }
 
 // ---- Confetti ----

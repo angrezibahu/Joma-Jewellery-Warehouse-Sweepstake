@@ -6,7 +6,7 @@
 
 // Bump this version whenever the cached app shell changes so clients
 // pick up the new files instead of serving stale ones.
-const CACHE_VERSION = "joma-sweepstake-v4";
+const CACHE_VERSION = "joma-sweepstake-v5";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const DATA_CACHE = CACHE_VERSION + "-data";
 
