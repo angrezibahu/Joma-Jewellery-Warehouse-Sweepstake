@@ -407,19 +407,31 @@ def _champion(schedule, results):
     return None
 
 
+def _without_updated_at(obj):
+    o = json.loads(json.dumps(obj))
+    o.pop("updatedAt", None)
+    return o
+
+
 def main():
     schedule = load(SCHEDULE)["matches"]
     results = load(RESULTS)
     prev_state = load(STATE, {})
+    prev_results = json.loads(json.dumps(results))
 
     changed = apply_results(schedule, results)
-    results["updatedAt"] = now_utc().strftime("%Y-%m-%dT%H:%M:%SZ")
 
     # derive_state also fills concrete teams into knockout fixtures as earlier
     # rounds finish, so persist results.json after deriving to keep them.
     state = derive_state(schedule, results, prev_state)
-    dump(RESULTS, results)
-    dump(STATE, state)
+
+    # Only rewrite the files when something real changed, so the hourly
+    # workflow doesn't commit (and redeploy) for a bare updatedAt bump.
+    if _without_updated_at(results) != _without_updated_at(prev_results):
+        results["updatedAt"] = now_utc().strftime("%Y-%m-%dT%H:%M:%SZ")
+        dump(RESULTS, results)
+    if _without_updated_at(state) != _without_updated_at(prev_state):
+        dump(STATE, state)
 
     print(f"Done. {changed} new result(s); "
           f"{len(state['eliminated'])} team(s) eliminated.")

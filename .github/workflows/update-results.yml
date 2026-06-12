@@ -1,0 +1,59 @@
+name: Update results
+
+on:
+  schedule:
+    # Hourly through the tournament: June 11-30 and July 1-19 (UTC).
+    - cron: "5 * 11-30 6 *"
+    - cron: "5 * 1-19 7 *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: update-results
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Update results and tracker state
+        env:
+          FOOTBALL_DATA_API_TOKEN: ${{ secrets.FOOTBALL_DATA_API_TOKEN }}
+          FOOTBALL_DATA_COMPETITION: ${{ vars.FOOTBALL_DATA_COMPETITION }}
+        run: python scripts/update_results.py
+
+      - name: Commit and push if changed
+        id: commit
+        run: |
+          if git diff --quiet -- results.json tracker-state.json; then
+            echo "No result changes."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results.json tracker-state.json
+          git commit -m "Update match results and tracker state [automated]"
+          git push origin main
+          echo "pushed=true" >> "$GITHUB_OUTPUT"
+
+      # Pushes made with GITHUB_TOKEN don't fire the push-triggered deploy
+      # workflow, so kick it explicitly when results changed.
+      - name: Trigger Pages deploy
+        if: steps.commit.outputs.pushed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run deploy.yml --ref main --repo "$GITHUB_REPOSITORY"
