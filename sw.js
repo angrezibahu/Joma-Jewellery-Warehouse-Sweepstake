@@ -6,7 +6,7 @@
 
 // Bump this version whenever the cached app shell changes so clients
 // pick up the new files instead of serving stale ones.
-const CACHE_VERSION = "joma-sweepstake-v1";
+const CACHE_VERSION = "joma-sweepstake-v3";
 const SHELL_CACHE = CACHE_VERSION + "-shell";
 const DATA_CACHE = CACHE_VERSION + "-data";
 
@@ -57,8 +57,10 @@ self.addEventListener("fetch", (event) => {
     if (isData) {
         // Network-first: always try for fresh results, fall back to the last
         // cached copy when offline. Cache keyed on path (ignoring ?v=).
+        // "no-store" skips the browser/CDN HTTP cache, so a max-age on the
+        // JSON can never serve a stale copy through the service worker.
         event.respondWith(
-            fetch(req)
+            fetch(req, { cache: "no-store" })
                 .then((res) => {
                     const copy = res.clone();
                     caches.open(DATA_CACHE).then((c) => c.put(url.pathname, copy));
