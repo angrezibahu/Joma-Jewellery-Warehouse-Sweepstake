@@ -197,7 +197,7 @@ function getStageName(stage) {
         final: "Final",
         winner: "WINNER!"
     };
-    return names[stage] || stage;
+    return Object.prototype.hasOwnProperty.call(names, stage) ? names[stage] : "Unknown stage";
 }
 
 // ---- Fixtures / internal calendar ----
