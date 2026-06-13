@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-12T12:00:00Z",
+  "updatedAt": "2026-06-13T06:32:38Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -105,31 +105,31 @@
     ],
     "B": [
       {
-        "team": "Switzerland",
-        "played": 0,
+        "team": "Canada",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 1
       },
       {
-        "team": "Qatar",
-        "played": 0,
+        "team": "Bosnia and Herzegovina",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 2
       },
       {
-        "team": "Canada",
+        "team": "Switzerland",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -141,7 +141,7 @@
         "rank": 3
       },
       {
-        "team": "Bosnia and Herzegovina",
+        "team": "Qatar",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -206,14 +206,14 @@
     "D": [
       {
         "team": "United States",
-        "played": 0,
-        "won": 0,
+        "played": 1,
+        "won": 1,
         "drawn": 0,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
+        "gf": 4,
+        "ga": 1,
+        "gd": 3,
+        "pts": 3,
         "rank": 1
       },
       {
@@ -229,7 +229,7 @@
         "rank": 2
       },
       {
-        "team": "Paraguay",
+        "team": "Australia",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -241,14 +241,14 @@
         "rank": 3
       },
       {
-        "team": "Australia",
-        "played": 0,
+        "team": "Paraguay",
+        "played": 1,
         "won": 0,
         "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "lost": 1,
+        "gf": 1,
+        "ga": 4,
+        "gd": -3,
         "pts": 0,
         "rank": 4
       }
