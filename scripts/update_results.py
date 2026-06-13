@@ -32,7 +32,7 @@ STATE = os.path.join(ROOT, "tracker-state.json")
 MANUAL = os.path.join(ROOT, "manual-results.json")
 
 API_TOKEN = os.environ.get("FOOTBALL_DATA_API_TOKEN", "").strip()
-API_COMP = os.environ.get("FOOTBALL_DATA_COMPETITION", "WC").strip()
+API_COMP = (os.environ.get("FOOTBALL_DATA_COMPETITION") or "WC").strip()
 API_BASE = "https://api.football-data.org/v4"
 
 # Map provider team names onto the canonical names used in data.js / schedule.json.
