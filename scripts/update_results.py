@@ -9,9 +9,14 @@ derives the full tournament state - group standings, who qualifies, and the
 knockout bracket - into tracker-state.json, which the website reads to show
 eliminations and how far each team (and therefore each sweepstake entrant) got.
 
-Data source: football-data.org v4 (free tier). Set the FOOTBALL_DATA_API_TOKEN
-secret. A committed manual-results.json ({"<matchNo>": "2-1", ...}) always wins
-over the API, so results can be corrected or entered by hand if the feed is off.
+Primary data source: openfootball/worldcup.json - free, public-domain World Cup
+JSON on GitHub (https://github.com/openfootball/worldcup.json). No API key, no
+rate limits, no bot protection; we just fetch the raw 2026/worldcup.json file.
+football-data.org v4 is kept as an optional fallback, used only when openfootball
+yields nothing and a FOOTBALL_DATA_API_TOKEN secret is configured.
+
+A committed manual-results.json ({"<matchNo>": "2-1", ...}) always wins over both
+feeds, so results can be corrected or entered by hand if a feed is off.
 
 The script is deliberately fail-soft: any network/parse problem is logged and the
 run still exits 0 with whatever it could update, so a flaky feed never turns the
@@ -31,6 +36,11 @@ RESULTS = os.path.join(ROOT, "results.json")
 STATE = os.path.join(ROOT, "tracker-state.json")
 MANUAL = os.path.join(ROOT, "manual-results.json")
 
+# Primary source: openfootball public-domain raw JSON (no key needed).
+OPENFOOTBALL_URL = (os.environ.get("OPENFOOTBALL_URL") or
+    "https://raw.githubusercontent.com/openfootball/worldcup.json/master/2026/worldcup.json").strip()
+
+# Optional fallback: football-data.org v4 (free tier), used only if a token is set.
 API_TOKEN = os.environ.get("FOOTBALL_DATA_API_TOKEN", "").strip()
 API_COMP = (os.environ.get("FOOTBALL_DATA_COMPETITION") or "WC").strip()
 API_BASE = "https://api.football-data.org/v4"
@@ -109,6 +119,73 @@ def canon(name, valid):
 # --------------------------------------------------------------------------
 # Fetching final scores
 # --------------------------------------------------------------------------
+def _openfootball_utc(date, time):
+    """Convert an openfootball date ('2026-06-11') + time ('13:00 UTC-6') to an
+    ISO UTC stamp, so a match can be paired with its schedule fixture by kickoff.
+    Falls back to date-midnight if the time can't be parsed."""
+    if not date:
+        return None
+    mt = re.match(r"^\s*(\d{1,2}):(\d{2})\s+UTC([+-]\d{1,2})", time or "")
+    if not mt:
+        return f"{date}T00:00:00Z"
+    hh, mm, off = int(mt.group(1)), int(mt.group(2)), int(mt.group(3))
+    try:
+        local = datetime.strptime(date, "%Y-%m-%d").replace(
+            tzinfo=timezone.utc, hour=hh, minute=mm)
+    except ValueError:
+        return f"{date}T00:00:00Z"
+    # local clock is UTC+off, so the UTC instant is local - off hours.
+    return (local - timedelta(hours=off)).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def fetch_openfootball_matches():
+    """Return finished matches from openfootball/worldcup.json, or [] on failure.
+
+    A match counts as finished once it carries a score. We store the on-pitch
+    finishing score (extra time if it went there, else 90 mins) and derive the
+    winner from penalties first, then that score - matching the normalized shape
+    fetch_api_matches() returns, so the rest of the pipeline is source-agnostic."""
+    try:
+        with urllib.request.urlopen(OPENFOOTBALL_URL, timeout=30) as resp:
+            data = json.loads(resp.read().decode())
+    except (urllib.error.URLError, urllib.error.HTTPError, ValueError) as e:
+        print(f"openfootball fetch failed ({e}); continuing with existing data.")
+        return []
+    out = []
+    for m in data.get("matches", []):
+        sc = m.get("score") or {}
+        # finishing score on the pitch: extra time if present, else full time.
+        ft = sc.get("et") or sc.get("ft")
+        if not (isinstance(ft, list) and len(ft) == 2):
+            continue  # unplayed (no score yet) or malformed
+        hs, as_ = ft
+        # Only accept sane integer scores: whatever lands in results.json ends
+        # up rendered on the website, so never persist arbitrary feed values.
+        if not (isinstance(hs, int) and isinstance(as_, int)):
+            continue
+        if hs < 0 or as_ < 0 or hs > 99 or as_ > 99:
+            continue
+        pens = sc.get("p")
+        if isinstance(pens, list) and len(pens) == 2 and pens[0] != pens[1]:
+            winner = "HOME_TEAM" if pens[0] > pens[1] else "AWAY_TEAM"
+        elif hs > as_:
+            winner = "HOME_TEAM"
+        elif as_ > hs:
+            winner = "AWAY_TEAM"
+        else:
+            winner = "DRAW"
+        out.append({
+            "home": m.get("team1"),
+            "away": m.get("team2"),
+            "homeScore": hs,
+            "awayScore": as_,
+            "winner": winner,  # HOME_TEAM/AWAY_TEAM/DRAW
+            "utcDate": _openfootball_utc(m.get("date"), m.get("time")),
+        })
+    print(f"openfootball returned {len(out)} finished matches.")
+    return out
+
+
 def fetch_api_matches():
     """Return list of finished matches from football-data.org, or [] on failure."""
     if not API_TOKEN:
@@ -148,8 +225,12 @@ def apply_results(schedule, results):
     valid = {m["home"] for m in schedule if not m["homePlaceholder"]}
     valid |= {m["away"] for m in schedule if not m["awayPlaceholder"]}
 
-    api = fetch_api_matches()
-    # Index API matches by the canonical team pair. The same two teams can meet
+    # openfootball is the primary feed; fall back to football-data.org only if it
+    # yields nothing and a token is configured. Both return the same shape.
+    api = fetch_openfootball_matches()
+    if not api and API_TOKEN:
+        api = fetch_api_matches()
+    # Index feed matches by the canonical team pair. The same two teams can meet
     # twice in a tournament (group stage, then a knockout rematch), so keep a
     # list per pair and let the lookup pick the right one by kickoff time.
     api_idx = {}
