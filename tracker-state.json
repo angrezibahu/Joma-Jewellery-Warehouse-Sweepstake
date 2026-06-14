@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T15:12:04Z",
+  "updatedAt": "2026-06-14T21:22:54Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -255,19 +255,19 @@
     ],
     "E": [
       {
-        "team": "Ivory Coast",
-        "played": 0,
-        "won": 0,
+        "team": "Germany",
+        "played": 1,
+        "won": 1,
         "drawn": 0,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
+        "gf": 7,
+        "ga": 1,
+        "gd": 6,
+        "pts": 3,
         "rank": 1
       },
       {
-        "team": "Germany",
+        "team": "Ivory Coast",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -292,13 +292,13 @@
       },
       {
         "team": "Curaçao",
-        "played": 0,
+        "played": 1,
         "won": 0,
         "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "lost": 1,
+        "gf": 1,
+        "ga": 7,
+        "gd": -6,
         "pts": 0,
         "rank": 4
       }

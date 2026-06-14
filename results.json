@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T15:12:04Z",
+  "updatedAt": "2026-06-14T21:22:54Z",
   "results": {
     "1": {
       "match": 1,
@@ -112,11 +112,11 @@
       "away": "Curaçao",
       "homeRef": "Germany",
       "awayRef": "Curaçao",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 7,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Germany",
+      "finishedAt": "2026-06-14T21:22:54Z"
     },
     "10": {
       "match": 10,
