@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-13T06:32:38Z",
+  "updatedAt": "2026-06-14T00:17:35Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -105,7 +105,7 @@
     ],
     "B": [
       {
-        "team": "Canada",
+        "team": "Switzerland",
         "played": 1,
         "won": 0,
         "drawn": 1,
@@ -117,7 +117,7 @@
         "rank": 1
       },
       {
-        "team": "Bosnia and Herzegovina",
+        "team": "Qatar",
         "played": 1,
         "won": 0,
         "drawn": 1,
@@ -129,27 +129,27 @@
         "rank": 2
       },
       {
-        "team": "Switzerland",
-        "played": 0,
+        "team": "Canada",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 3
       },
       {
-        "team": "Qatar",
-        "played": 0,
+        "team": "Bosnia and Herzegovina",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 4
       }
     ],
