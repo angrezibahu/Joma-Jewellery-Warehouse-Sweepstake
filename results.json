@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T00:17:35Z",
+  "updatedAt": "2026-06-14T05:59:26Z",
   "results": {
     "1": {
       "match": 1,
@@ -73,11 +73,11 @@
       "away": "Morocco",
       "homeRef": "Brazil",
       "awayRef": "Morocco",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-14T05:59:26Z"
     },
     "7": {
       "match": 7,
@@ -86,11 +86,11 @@
       "away": "Scotland",
       "homeRef": "Haiti",
       "awayRef": "Scotland",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Scotland",
+      "finishedAt": "2026-06-14T05:59:26Z"
     },
     "8": {
       "match": 8,
