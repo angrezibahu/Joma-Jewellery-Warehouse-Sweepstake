@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T05:59:26Z",
+  "updatedAt": "2026-06-14T15:12:04Z",
   "results": {
     "1": {
       "match": 1,
@@ -99,11 +99,11 @@
       "away": "Türkiye",
       "homeRef": "Australia",
       "awayRef": "Türkiye",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Australia",
+      "finishedAt": "2026-06-14T15:12:04Z"
     },
     "9": {
       "match": 9,

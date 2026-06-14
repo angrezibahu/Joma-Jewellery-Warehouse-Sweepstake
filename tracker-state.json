@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-14T05:59:26Z",
+  "updatedAt": "2026-06-14T15:12:04Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -217,26 +217,26 @@
         "rank": 1
       },
       {
-        "team": "Türkiye",
-        "played": 0,
-        "won": 0,
+        "team": "Australia",
+        "played": 1,
+        "won": 1,
         "drawn": 0,
         "lost": 0,
-        "gf": 0,
+        "gf": 2,
         "ga": 0,
-        "gd": 0,
-        "pts": 0,
+        "gd": 2,
+        "pts": 3,
         "rank": 2
       },
       {
-        "team": "Australia",
-        "played": 0,
+        "team": "Türkiye",
+        "played": 1,
         "won": 0,
         "drawn": 0,
-        "lost": 0,
+        "lost": 1,
         "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "ga": 2,
+        "gd": -2,
         "pts": 0,
         "rank": 3
       },
