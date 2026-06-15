@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T05:20:52Z",
+  "updatedAt": "2026-06-15T11:40:15Z",
   "results": {
     "1": {
       "match": 1,
@@ -151,11 +151,11 @@
       "away": "Tunisia",
       "homeRef": "Sweden",
       "awayRef": "Tunisia",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 5,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Sweden",
+      "finishedAt": "2026-06-15T11:40:15Z"
     },
     "13": {
       "match": 13,
