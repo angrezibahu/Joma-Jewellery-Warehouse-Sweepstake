@@ -228,6 +228,7 @@ def apply_results(schedule, results):
     # openfootball is the primary feed; fall back to football-data.org only if it
     # yields nothing and a token is configured. Both return the same shape.
     api = fetch_openfootball_matches()
+    api_is_openfootball = bool(api)  # track source: openfootball scores are trusted immediately
     if not api and API_TOKEN:
         api = fetch_api_matches()
     # Index feed matches by the canonical team pair. The same two teams can meet
@@ -248,12 +249,22 @@ def apply_results(schedule, results):
         rec = results["results"][no]
         if rec.get("status") == "FINISHED":
             continue
-        due = parse_iso(m["resultsDueUTC"])
-        if now < due:
-            continue  # not enough time has passed since this match finished
 
         home = rec.get("home")
         away = rec.get("away")
+
+        # Look up the feed result early so we can decide whether to bypass the
+        # resultsDueUTC gate below.
+        ob_candidates = api_idx.get(frozenset((home, away)), []) if (home and away) else []
+        ob_result = _closest_api_match(ob_candidates, m.get("kickoffUTC"))
+
+        due = parse_iso(m["resultsDueUTC"])
+        # openfootball only publishes ft scores for genuinely completed games, so
+        # apply its results immediately without waiting for resultsDueUTC.
+        # The gate is kept for the football-data.org fallback (which may carry
+        # in-progress partial scores) and for matches openfootball hasn't scored yet.
+        if now < due and not (api_is_openfootball and ob_result):
+            continue
 
         # 1) manual override wins, e.g. "2-1" (orientation = home-away of this
         #    match). A knockout decided after a level score (extra time / pens)
@@ -277,16 +288,13 @@ def apply_results(schedule, results):
                 continue
             print(f"Bad manual result for match {no}: {manual[no]!r}")
 
-        # 2) API (only once both teams are known, i.e. not still a placeholder)
-        if home and away:
-            candidates = api_idx.get(frozenset((home, away)), [])
-            a = _closest_api_match(candidates, m.get("kickoffUTC"))
-            if a:
-                if canon(a["home"], valid) == home:
-                    _set_result(rec, a["homeScore"], a["awayScore"], a.get("winner"))
-                else:
-                    _set_result(rec, a["awayScore"], a["homeScore"], a.get("winner"), flip=True)
-                changed += 1
+        # 2) openfootball / API result (only once both teams are known)
+        if ob_result:
+            if canon(ob_result["home"], valid) == home:
+                _set_result(rec, ob_result["homeScore"], ob_result["awayScore"], ob_result.get("winner"))
+            else:
+                _set_result(rec, ob_result["awayScore"], ob_result["homeScore"], ob_result.get("winner"), flip=True)
+            changed += 1
 
     print(f"Updated {changed} match result(s).")
     return changed
