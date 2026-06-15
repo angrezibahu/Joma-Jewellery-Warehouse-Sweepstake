@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T11:40:15Z",
+  "updatedAt": "2026-06-15T21:14:57Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -355,31 +355,31 @@
     ],
     "G": [
       {
-        "team": "New Zealand",
-        "played": 0,
+        "team": "Egypt",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 1
       },
       {
-        "team": "IR Iran",
-        "played": 0,
+        "team": "Belgium",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 1,
+        "ga": 1,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 2
       },
       {
-        "team": "Egypt",
+        "team": "New Zealand",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -391,7 +391,7 @@
         "rank": 3
       },
       {
-        "team": "Belgium",
+        "team": "IR Iran",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -405,31 +405,31 @@
     ],
     "H": [
       {
-        "team": "Uruguay",
-        "played": 0,
+        "team": "Spain",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
         "gf": 0,
         "ga": 0,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 1
       },
       {
-        "team": "Spain",
-        "played": 0,
+        "team": "Cape Verde",
+        "played": 1,
         "won": 0,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
         "gf": 0,
         "ga": 0,
         "gd": 0,
-        "pts": 0,
+        "pts": 1,
         "rank": 2
       },
       {
-        "team": "Saudi Arabia",
+        "team": "Uruguay",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -441,7 +441,7 @@
         "rank": 3
       },
       {
-        "team": "Cape Verde",
+        "team": "Saudi Arabia",
         "played": 0,
         "won": 0,
         "drawn": 0,

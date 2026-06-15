@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T11:40:15Z",
+  "updatedAt": "2026-06-15T21:14:57Z",
   "results": {
     "1": {
       "match": 1,
@@ -164,11 +164,11 @@
       "away": "Cape Verde",
       "homeRef": "Spain",
       "awayRef": "Cape Verde",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-15T21:14:57Z"
     },
     "14": {
       "match": 14,
@@ -177,11 +177,11 @@
       "away": "Egypt",
       "homeRef": "Belgium",
       "awayRef": "Egypt",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-15T21:14:57Z"
     },
     "15": {
       "match": 15,
