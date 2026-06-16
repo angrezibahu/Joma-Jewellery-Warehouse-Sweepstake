@@ -9,6 +9,22 @@ const isAdmin = new URLSearchParams(window.location.search).get("admin") === "tr
 
 const TOTAL_SPOTS = 48;
 
+// The day the Fixtures list should land on (today, or the next day with
+// matches). Set by renderFixtures, used to anchor the scroll position.
+let fixturesAnchorDate = null;
+
+// Today's date in UK local time as "YYYY-MM-DD", to match schedule ukDate.
+function todayUKDate() {
+    return new Date().toLocaleDateString("en-CA", { timeZone: "Europe/London" });
+}
+
+// Jump the Fixtures list to today's matches so you don't scroll from June 11th.
+function scrollFixturesToToday(smooth) {
+    if (!fixturesAnchorDate) return;
+    const el = document.getElementById("fx-day-" + fixturesAnchorDate);
+    if (el) el.scrollIntoView({ behavior: smooth ? "smooth" : "auto", block: "start" });
+}
+
 // ---- Init ----
 document.addEventListener("DOMContentLoaded", async () => {
     setupTabs();
@@ -22,17 +38,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderFixtures();
     setupAdmin();
     setupTeamClicks();
+
+    // Fixtures is the default tab — land on today's matches rather than the
+    // opening fixtures back in June.
+    requestAnimationFrame(() => scrollFixturesToToday(false));
 });
 
 // Delegated click: anywhere a team name is rendered with [data-team-click],
-// tapping it replays the right animation for that team's current state.
+// tapping it opens that team's detail card (results so far + how far they've
+// gone), with a button to replay the celebration/commiseration animation.
 function setupTeamClicks() {
     const handler = (e) => {
         const el = e.target.closest("[data-team-click]");
         if (!el) return;
         if (document.querySelector(".anim-overlay")) return;  // one at a time
         e.preventDefault();
-        playTeamStatus(el.dataset.teamClick);
+        showTeamDetail(el.dataset.teamClick);
     };
     document.addEventListener("click", handler);
     document.addEventListener("keydown", (e) => {
@@ -41,7 +62,7 @@ function setupTeamClicks() {
         if (!el) return;
         e.preventDefault();
         if (document.querySelector(".anim-overlay")) return;
-        playTeamStatus(el.dataset.teamClick);
+        showTeamDetail(el.dataset.teamClick);
     });
 }
 
@@ -54,6 +75,155 @@ function playTeamStatus(name) {
     }
     const stage = getStage(name);
     playAdvanceAnimation(team, "groups", stage, { review: true });
+}
+
+// Long, friendly names for a team's tournament stage (the value stored by the
+// tracker: groups / r32 / r16 / qf / sf / final / winner).
+const STAGE_NAME_LONG = {
+    groups: "Group Stage",
+    r32: "Round of 32",
+    r16: "Round of 16",
+    qf: "Quarter-finals",
+    sf: "Semi-finals",
+    final: "Final",
+    winner: "Champions",
+};
+
+function stageNameLong(stage) {
+    return Object.prototype.hasOwnProperty.call(STAGE_NAME_LONG, stage)
+        ? STAGE_NAME_LONG[stage] : "the tournament";
+}
+
+// Resolve the actual team name on one side of a scheduled match. Group matches
+// carry real names; knockout fixtures start as placeholders and get filled in
+// by the results engine as earlier rounds finish. Mirrors fixtureSide().
+function resolvedName(m, side) {
+    const rec = RESULTS[String(m.match)] || {};
+    const resolved = rec[side];
+    const placeholder = side === "home" ? m.homePlaceholder : m.awayPlaceholder;
+    const ref = side === "home" ? m.home : m.away;
+    return resolved || (placeholder ? null : ref);
+}
+
+// Every scheduled match this team appears in, oldest first, with the result
+// worked out from their point of view.
+function teamMatches(name) {
+    const out = [];
+    for (const m of SCHEDULE) {
+        const home = resolvedName(m, "home");
+        const away = resolvedName(m, "away");
+        if (home !== name && away !== name) continue;
+
+        const isHome = home === name;
+        const opponent = isHome ? away : home;
+        const rec = RESULTS[String(m.match)] || {};
+        const finished = rec.status === "FINISHED";
+
+        const ts = isHome ? Number(rec.homeScore) : Number(rec.awayScore);
+        const os = isHome ? Number(rec.awayScore) : Number(rec.homeScore);
+        const hasScore = finished && Number.isFinite(ts) && Number.isFinite(os);
+        const outcome = hasScore ? (ts > os ? "W" : ts < os ? "L" : "D") : null;
+
+        out.push({ m, isHome, opponent, rec, finished, ts, os, hasScore, outcome });
+    }
+    return out.sort((a, b) => a.m.match - b.m.match);
+}
+
+// Detail card: a team's results so far and where they are in the tournament,
+// with a button to replay the celebration / commiseration moment.
+function showTeamDetail(name) {
+    const team = findTeam(name);
+    if (!team) return;
+
+    const owner = state.assignments[name];
+    const eliminated = isEliminated(name);
+    const stage = getStage(name);
+    const matches = teamMatches(name);
+    const now = Date.now();
+
+    // Played record (finished matches only).
+    let p = 0, w = 0, d = 0, l = 0, gf = 0, ga = 0;
+    for (const mt of matches) {
+        if (!mt.hasScore) continue;
+        p++; gf += mt.ts; ga += mt.os;
+        if (mt.outcome === "W") w++;
+        else if (mt.outcome === "L") l++;
+        else d++;
+    }
+    const recordLine = p > 0
+        ? `Played ${p} · ${w}W ${d}D ${l}L · ${gf}–${ga} goals`
+        : "No matches played yet";
+
+    let statusText, statusCls;
+    if (stage === "winner") {
+        statusText = "\u{1F3C6} Champions!"; statusCls = "in";
+    } else if (eliminated) {
+        statusText = `Eliminated — went out in the ${stageNameLong(stage)}`; statusCls = "out";
+    } else if (stage === "groups") {
+        statusText = "Still in it — currently in the Group Stage"; statusCls = "in";
+    } else {
+        statusText = `Still in it — through to the ${stageNameLong(stage)}`; statusCls = "in";
+    }
+
+    const rowsHtml = matches.map(mt => {
+        const m = mt.m;
+        const day = new Date(m.ukDate + "T12:00:00Z")
+            .toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
+        const stageTag = m.stage === "group" ? `Group ${m.group}` : (STAGE_LABEL_LONG[m.stage] || m.stage);
+        const oppFlag = mt.opponent ? teamFlag(mt.opponent) : "";
+        const oppName = mt.opponent ? escapeHtml(mt.opponent) : "TBC";
+
+        let resHtml, rowCls;
+        if (mt.hasScore) {
+            const cls = mt.outcome === "W" ? "win" : mt.outcome === "L" ? "loss" : "draw";
+            resHtml = `<span class="td-pill ${cls}">${mt.outcome}</span><span class="td-mscore">${mt.ts}–${mt.os}</span>`;
+            rowCls = "played";
+        } else {
+            const due = now >= Date.parse(m.resultsDueUTC);
+            resHtml = `<span class="td-mko">${due ? "Awaiting" : escapeHtml(m.ukTime)}</span>`;
+            rowCls = "upcoming";
+        }
+
+        return `
+            <div class="td-match ${rowCls}">
+                <div class="td-mdate">${day}<span class="td-mstage">${stageTag}</span></div>
+                <div class="td-mopp"><span class="td-vs">v</span><span class="td-mflag">${oppFlag}</span><span class="td-mname">${oppName}</span></div>
+                <div class="td-mres">${resHtml}</div>
+            </div>`;
+    }).join("");
+
+    const btnLabel = stage === "winner" ? "\u{1F3C6} Celebrate"
+        : eliminated ? "\u{1F3F4} Lower the flag"
+        : "\u{1F389} Cheer them on";
+
+    const overlay = document.createElement("div");
+    overlay.className = "anim-overlay team-detail";
+    overlay.innerHTML = `
+        <div class="td-card">
+            <button class="anim-close" aria-label="Close">&times;</button>
+            <div class="td-head">
+                <span class="td-flag">${team.flag}</span>
+                <div class="td-headinfo">
+                    <div class="td-name">${escapeHtml(team.name)}</div>
+                    ${owner ? `<div class="td-owner">${escapeHtml(owner)}</div>` : ""}
+                </div>
+            </div>
+            <div class="td-status ${statusCls}">${statusText}</div>
+            <div class="td-record">${recordLine}</div>
+            <div class="td-matches">${rowsHtml || '<div class="td-empty">No fixtures yet.</div>'}</div>
+            <button class="td-celebrate">${btnLabel}</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+
+    const close = () => overlay.remove();
+    overlay.querySelector(".anim-close").addEventListener("click", close);
+    overlay.addEventListener("click", (e) => { if (e.target === overlay) close(); });
+    overlay.querySelector(".td-celebrate").addEventListener("click", () => {
+        close();
+        playTeamStatus(name);
+    });
+    requestAnimationFrame(() => overlay.classList.add("show"));
 }
 
 // ---- Effective team state: auto results (LIVE), with admin overrides on top ----
@@ -84,6 +254,7 @@ function setupTabs() {
             document.querySelectorAll(".tab-content").forEach(tc => tc.classList.remove("active"));
             tab.classList.add("active");
             document.getElementById(tab.dataset.tab).classList.add("active");
+            if (tab.dataset.tab === "fixtures") scrollFixturesToToday(true);
         });
     });
 }
@@ -265,10 +436,22 @@ function renderFixtures() {
         (byDate[m.ukDate] = byDate[m.ukDate] || []).push(m);
     }
 
+    // Anchor the list on today's matches (or the next day with fixtures if
+    // there's nothing on today) so the user lands on what's current.
+    const dates = Object.keys(byDate).sort();
+    const today = todayUKDate();
+    fixturesAnchorDate = dates.find(date => date >= today) || dates[dates.length - 1] || null;
+
     let html = "";
-    for (const date of Object.keys(byDate).sort()) {
+    for (const date of dates) {
         const d = new Date(date + "T12:00:00Z");
-        html += `<div class="fx-day">${d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" })}</div>`;
+        const dateText = d.toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long" });
+        const isToday = date === today;
+        const isAnchor = date === fixturesAnchorDate;
+        const dayCls = isToday ? " today" : (isAnchor ? " next-up" : "");
+        const badge = isToday ? '<span class="fx-day-tag">Today</span>'
+            : isAnchor ? '<span class="fx-day-tag">Next up</span>' : "";
+        html += `<div class="fx-day${dayCls}" id="fx-day-${date}">${dateText}${badge}</div>`;
         for (const m of byDate[date].sort((a, b) => a.match - b.match)) {
             const rec = RESULTS[String(m.match)] || {};
             const finished = rec.status === "FINISHED";

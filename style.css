@@ -1268,3 +1268,158 @@ footer .small {
     .fx-owner { display: none; }
     .fx-flag { font-size: 1.1rem; }
 }
+
+/* Keep the day heading clear of the sticky tab bar when we scroll to it. */
+.fx-day { scroll-margin-top: 64px; }
+.fx-day.today, .fx-day.next-up {
+    color: var(--text-primary);
+    border-bottom-color: var(--gold);
+}
+.fx-day-tag {
+    display: inline-block;
+    margin-left: 0.6rem;
+    vertical-align: middle;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #fff;
+    background: var(--gold);
+    padding: 0.12rem 0.5rem;
+    border-radius: 999px;
+}
+.fx-day.next-up .fx-day-tag { background: var(--blue-sky); }
+
+/* ---- Team detail card (tap a team anywhere) ---- */
+.anim-overlay.team-detail { align-items: flex-start; }
+.td-card {
+    position: relative;
+    width: min(480px, 94vw);
+    margin: 6vh auto 4vh;
+    max-height: 88vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    border-radius: 16px;
+    padding: 1.5rem 1.25rem 1.25rem;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+}
+.anim-overlay.team-detail.show .td-card { transform: translateY(0); opacity: 1; }
+.td-card .anim-close {
+    background: rgba(0,0,0,0.06);
+    color: var(--text-primary);
+}
+.td-card .anim-close:hover { background: rgba(0,0,0,0.12); }
+.td-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-right: 2.5rem;
+}
+.td-flag { font-size: 2.6rem; line-height: 1; }
+.td-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.1;
+}
+.td-owner {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 0.15rem;
+}
+.td-status {
+    margin-top: 0.9rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.td-status.in { color: var(--alive); }
+.td-status.out { color: var(--eliminated); }
+.td-record {
+    margin-top: 0.2rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.td-matches {
+    margin-top: 1rem;
+    overflow-y: auto;
+    flex: 1;
+    -webkit-overflow-scrolling: touch;
+}
+.td-match {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.55rem 0.2rem;
+    border-top: 1px solid rgba(0,0,0,0.07);
+}
+.td-match:first-child { border-top: none; }
+.td-match.upcoming { opacity: 0.7; }
+.td-mdate {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    min-width: 56px;
+}
+.td-mstage {
+    font-size: 0.62rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    color: var(--text-muted);
+}
+.td-mopp {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+}
+.td-vs { color: var(--text-muted); font-size: 0.78rem; font-style: italic; }
+.td-mflag { font-size: 1.2rem; flex-shrink: 0; }
+.td-mname {
+    font-weight: 600;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.td-mres { display: flex; align-items: center; gap: 0.4rem; justify-self: end; }
+.td-mscore { font-weight: 800; color: var(--text-primary); white-space: nowrap; }
+.td-mko { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
+.td-pill {
+    font-size: 0.7rem;
+    font-weight: 800;
+    color: #fff;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+}
+.td-pill.win { background: var(--alive); }
+.td-pill.loss { background: var(--red-card); }
+.td-pill.draw { background: var(--silver); }
+.td-empty { color: var(--text-muted); padding: 1rem 0; text-align: center; }
+.td-celebrate {
+    margin-top: 1.1rem;
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 999px;
+    background: var(--gold);
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: filter 0.2s;
+}
+.td-celebrate:hover { filter: brightness(1.08); }
