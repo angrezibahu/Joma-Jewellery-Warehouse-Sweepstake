@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T21:14:57Z",
+  "updatedAt": "2026-06-16T05:24:04Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -355,6 +355,30 @@
     ],
     "G": [
       {
+        "team": "New Zealand",
+        "played": 1,
+        "won": 0,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 2,
+        "ga": 2,
+        "gd": 0,
+        "pts": 1,
+        "rank": 1
+      },
+      {
+        "team": "IR Iran",
+        "played": 1,
+        "won": 0,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 2,
+        "ga": 2,
+        "gd": 0,
+        "pts": 1,
+        "rank": 2
+      },
+      {
         "team": "Egypt",
         "played": 1,
         "won": 0,
@@ -364,7 +388,7 @@
         "ga": 1,
         "gd": 0,
         "pts": 1,
-        "rank": 1
+        "rank": 3
       },
       {
         "team": "Belgium",
@@ -376,34 +400,34 @@
         "ga": 1,
         "gd": 0,
         "pts": 1,
-        "rank": 2
-      },
-      {
-        "team": "New Zealand",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
-        "rank": 3
-      },
-      {
-        "team": "IR Iran",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
         "rank": 4
       }
     ],
     "H": [
+      {
+        "team": "Uruguay",
+        "played": 1,
+        "won": 0,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 1,
+        "ga": 1,
+        "gd": 0,
+        "pts": 1,
+        "rank": 1
+      },
+      {
+        "team": "Saudi Arabia",
+        "played": 1,
+        "won": 0,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 1,
+        "ga": 1,
+        "gd": 0,
+        "pts": 1,
+        "rank": 2
+      },
       {
         "team": "Spain",
         "played": 1,
@@ -414,7 +438,7 @@
         "ga": 0,
         "gd": 0,
         "pts": 1,
-        "rank": 1
+        "rank": 3
       },
       {
         "team": "Cape Verde",
@@ -426,30 +450,6 @@
         "ga": 0,
         "gd": 0,
         "pts": 1,
-        "rank": 2
-      },
-      {
-        "team": "Uruguay",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
-        "rank": 3
-      },
-      {
-        "team": "Saudi Arabia",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
         "rank": 4
       }
     ],

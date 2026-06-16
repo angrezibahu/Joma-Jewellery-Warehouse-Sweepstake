@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-15T21:14:57Z",
+  "updatedAt": "2026-06-16T05:24:04Z",
   "results": {
     "1": {
       "match": 1,
@@ -190,11 +190,11 @@
       "away": "Uruguay",
       "homeRef": "Saudi Arabia",
       "awayRef": "Uruguay",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-16T05:24:04Z"
     },
     "16": {
       "match": 16,
@@ -203,11 +203,11 @@
       "away": "New Zealand",
       "homeRef": "IR Iran",
       "awayRef": "New Zealand",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-16T05:24:04Z"
     },
     "17": {
       "match": 17,
