@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T05:24:04Z",
+  "updatedAt": "2026-06-16T21:14:41Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -455,15 +455,15 @@
     ],
     "I": [
       {
-        "team": "Senegal",
-        "played": 0,
-        "won": 0,
+        "team": "France",
+        "played": 1,
+        "won": 1,
         "drawn": 0,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
+        "gf": 3,
+        "ga": 1,
+        "gd": 2,
+        "pts": 3,
         "rank": 1
       },
       {
@@ -491,14 +491,14 @@
         "rank": 3
       },
       {
-        "team": "France",
-        "played": 0,
+        "team": "Senegal",
+        "played": 1,
         "won": 0,
         "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "lost": 1,
+        "gf": 1,
+        "ga": 3,
+        "gd": -2,
         "pts": 0,
         "rank": 4
       }
