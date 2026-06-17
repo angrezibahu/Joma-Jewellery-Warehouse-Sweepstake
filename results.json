@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T21:14:41Z",
+  "updatedAt": "2026-06-17T05:03:45Z",
   "results": {
     "1": {
       "match": 1,
@@ -229,11 +229,11 @@
       "away": "Norway",
       "homeRef": "Iraq",
       "awayRef": "Norway",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "FINISHED",
+      "winner": "Norway",
+      "finishedAt": "2026-06-17T05:03:45Z"
     },
     "19": {
       "match": 19,
@@ -242,11 +242,11 @@
       "away": "Algeria",
       "homeRef": "Argentina",
       "awayRef": "Algeria",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 3,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Argentina",
+      "finishedAt": "2026-06-17T05:03:45Z"
     },
     "20": {
       "match": 20,

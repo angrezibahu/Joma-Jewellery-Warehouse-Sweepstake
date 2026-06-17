@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-16T21:14:41Z",
+  "updatedAt": "2026-06-17T05:03:45Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -455,6 +455,18 @@
     ],
     "I": [
       {
+        "team": "Norway",
+        "played": 1,
+        "won": 1,
+        "drawn": 0,
+        "lost": 0,
+        "gf": 4,
+        "ga": 1,
+        "gd": 3,
+        "pts": 3,
+        "rank": 1
+      },
+      {
         "team": "France",
         "played": 1,
         "won": 1,
@@ -464,31 +476,7 @@
         "ga": 1,
         "gd": 2,
         "pts": 3,
-        "rank": 1
-      },
-      {
-        "team": "Norway",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
         "rank": 2
-      },
-      {
-        "team": "Iraq",
-        "played": 0,
-        "won": 0,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
-        "pts": 0,
-        "rank": 3
       },
       {
         "team": "Senegal",
@@ -500,24 +488,36 @@
         "ga": 3,
         "gd": -2,
         "pts": 0,
+        "rank": 3
+      },
+      {
+        "team": "Iraq",
+        "played": 1,
+        "won": 0,
+        "drawn": 0,
+        "lost": 1,
+        "gf": 1,
+        "ga": 4,
+        "gd": -3,
+        "pts": 0,
         "rank": 4
       }
     ],
     "J": [
       {
-        "team": "Jordan",
-        "played": 0,
-        "won": 0,
+        "team": "Argentina",
+        "played": 1,
+        "won": 1,
         "drawn": 0,
         "lost": 0,
-        "gf": 0,
+        "gf": 3,
         "ga": 0,
-        "gd": 0,
-        "pts": 0,
+        "gd": 3,
+        "pts": 3,
         "rank": 1
       },
       {
-        "team": "Austria",
+        "team": "Jordan",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -529,7 +529,7 @@
         "rank": 2
       },
       {
-        "team": "Argentina",
+        "team": "Austria",
         "played": 0,
         "won": 0,
         "drawn": 0,
@@ -542,13 +542,13 @@
       },
       {
         "team": "Algeria",
-        "played": 0,
+        "played": 1,
         "won": 0,
         "drawn": 0,
-        "lost": 0,
+        "lost": 1,
         "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "ga": 3,
+        "gd": -3,
         "pts": 0,
         "rank": 4
       }
