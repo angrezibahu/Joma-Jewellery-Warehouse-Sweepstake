@@ -165,7 +165,13 @@ function showTeamDetail(name) {
         statusText = `Still in it — through to the ${stageNameLong(stage)}`; statusCls = "in";
     }
 
-    const rowsHtml = matches.map(mt => {
+    // The football carries a halo coloured by the result (gold win / red loss /
+    // grey draw, none if unplayed). When the team is eliminated, the last match
+    // they actually played is the one they went out on — cross that ball out.
+    let lastPlayedIdx = -1;
+    matches.forEach((mt, i) => { if (mt.hasScore) lastPlayedIdx = i; });
+
+    const rowsHtml = matches.map((mt, i) => {
         const m = mt.m;
         const day = new Date(m.ukDate + "T12:00:00Z")
             .toLocaleDateString("en-GB", { weekday: "short", day: "numeric", month: "short" });
@@ -176,11 +182,15 @@ function showTeamDetail(name) {
         let resHtml, rowCls;
         if (mt.hasScore) {
             const cls = mt.outcome === "W" ? "win" : mt.outcome === "L" ? "loss" : "draw";
-            resHtml = `<span class="td-pill ${cls}">${mt.outcome}</span><span class="td-mscore">${mt.ts}–${mt.os}</span>`;
+            const label = mt.outcome === "W" ? "Won" : mt.outcome === "L" ? "Lost" : "Drew";
+            const knockedOut = eliminated && i === lastPlayedIdx;
+            const ballCls = `td-ball ${cls}${knockedOut ? " knocked-out" : ""}`;
+            const ballTitle = knockedOut ? `${label} — knocked out` : label;
+            resHtml = `<span class="${ballCls}" role="img" aria-label="${ballTitle}" title="${ballTitle}">⚽</span><span class="td-mscore">${mt.ts}–${mt.os}</span>`;
             rowCls = "played";
         } else {
             const due = now >= Date.parse(m.resultsDueUTC);
-            resHtml = `<span class="td-mko">${due ? "Awaiting" : escapeHtml(m.ukTime)}</span>`;
+            resHtml = `<span class="td-ball none" role="img" aria-label="Not played yet">⚽</span><span class="td-mko">${due ? "Awaiting" : escapeHtml(m.ukTime)}</span>`;
             rowCls = "upcoming";
         }
 
