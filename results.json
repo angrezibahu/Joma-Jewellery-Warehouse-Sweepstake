@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-17T05:03:45Z",
+  "updatedAt": "2026-06-17T09:59:32Z",
   "results": {
     "1": {
       "match": 1,
@@ -255,11 +255,11 @@
       "away": "Jordan",
       "homeRef": "Austria",
       "awayRef": "Jordan",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Austria",
+      "finishedAt": "2026-06-17T09:59:32Z"
     },
     "21": {
       "match": 21,
