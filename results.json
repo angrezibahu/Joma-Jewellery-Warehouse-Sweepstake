@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-17T09:59:32Z",
+  "updatedAt": "2026-06-17T20:26:20Z",
   "results": {
     "1": {
       "match": 1,
@@ -268,11 +268,11 @@
       "away": "DR Congo",
       "homeRef": "Portugal",
       "awayRef": "DR Congo",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-17T20:26:20Z"
     },
     "22": {
       "match": 22,
