@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T18:09:51Z",
+  "updatedAt": "2026-06-18T21:25:49Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -106,14 +106,14 @@
     "B": [
       {
         "team": "Switzerland",
-        "played": 1,
-        "won": 0,
+        "played": 2,
+        "won": 1,
         "drawn": 1,
         "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
+        "gf": 5,
+        "ga": 2,
+        "gd": 3,
+        "pts": 4,
         "rank": 1
       },
       {
@@ -142,13 +142,13 @@
       },
       {
         "team": "Bosnia and Herzegovina",
-        "played": 1,
+        "played": 2,
         "won": 0,
         "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
+        "lost": 1,
+        "gf": 2,
+        "ga": 5,
+        "gd": -3,
         "pts": 1,
         "rank": 4
       }

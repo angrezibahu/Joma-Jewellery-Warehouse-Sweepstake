@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T18:09:51Z",
+  "updatedAt": "2026-06-18T21:25:49Z",
   "results": {
     "1": {
       "match": 1,
@@ -333,11 +333,11 @@
       "away": "Bosnia and Herzegovina",
       "homeRef": "Switzerland",
       "awayRef": "Bosnia and Herzegovina",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 4,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Switzerland",
+      "finishedAt": "2026-06-18T21:25:49Z"
     },
     "27": {
       "match": 27,
