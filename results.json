@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-17T22:49:35Z",
+  "updatedAt": "2026-06-18T06:03:50Z",
   "results": {
     "1": {
       "match": 1,
@@ -294,11 +294,11 @@
       "away": "Panama",
       "homeRef": "Ghana",
       "awayRef": "Panama",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Ghana",
+      "finishedAt": "2026-06-18T06:03:50Z"
     },
     "24": {
       "match": 24,
@@ -307,11 +307,11 @@
       "away": "Colombia",
       "homeRef": "Uzbekistan",
       "awayRef": "Colombia",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Colombia",
+      "finishedAt": "2026-06-18T06:03:50Z"
     },
     "25": {
       "match": 25,
