@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T21:25:49Z",
+  "updatedAt": "2026-06-19T05:16:16Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -56,25 +56,25 @@
     "A": [
       {
         "team": "Mexico",
-        "played": 1,
-        "won": 1,
+        "played": 2,
+        "won": 2,
         "drawn": 0,
         "lost": 0,
-        "gf": 2,
+        "gf": 3,
         "ga": 0,
-        "gd": 2,
-        "pts": 3,
+        "gd": 3,
+        "pts": 6,
         "rank": 1
       },
       {
         "team": "South Korea",
-        "played": 1,
+        "played": 2,
         "won": 1,
         "drawn": 0,
-        "lost": 0,
+        "lost": 1,
         "gf": 2,
-        "ga": 1,
-        "gd": 1,
+        "ga": 2,
+        "gd": 0,
         "pts": 3,
         "rank": 2
       },
@@ -105,6 +105,18 @@
     ],
     "B": [
       {
+        "team": "Canada",
+        "played": 2,
+        "won": 1,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 7,
+        "ga": 1,
+        "gd": 6,
+        "pts": 4,
+        "rank": 1
+      },
+      {
         "team": "Switzerland",
         "played": 2,
         "won": 1,
@@ -114,31 +126,7 @@
         "ga": 2,
         "gd": 3,
         "pts": 4,
-        "rank": 1
-      },
-      {
-        "team": "Qatar",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
         "rank": 2
-      },
-      {
-        "team": "Canada",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
-        "rank": 3
       },
       {
         "team": "Bosnia and Herzegovina",
@@ -149,6 +137,18 @@
         "gf": 2,
         "ga": 5,
         "gd": -3,
+        "pts": 1,
+        "rank": 3
+      },
+      {
+        "team": "Qatar",
+        "played": 2,
+        "won": 0,
+        "drawn": 1,
+        "lost": 1,
+        "gf": 1,
+        "ga": 7,
+        "gd": -6,
         "pts": 1,
         "rank": 4
       }

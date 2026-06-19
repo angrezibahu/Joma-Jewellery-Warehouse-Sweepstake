@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-18T21:25:49Z",
+  "updatedAt": "2026-06-19T05:16:16Z",
   "results": {
     "1": {
       "match": 1,
@@ -346,11 +346,11 @@
       "away": "Qatar",
       "homeRef": "Canada",
       "awayRef": "Qatar",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 6,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Canada",
+      "finishedAt": "2026-06-19T05:16:16Z"
     },
     "28": {
       "match": 28,
@@ -359,11 +359,11 @@
       "away": "South Korea",
       "homeRef": "Mexico",
       "awayRef": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Mexico",
+      "finishedAt": "2026-06-19T05:16:16Z"
     },
     "29": {
       "match": 29,
