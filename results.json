@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T20:22:10Z",
+  "updatedAt": "2026-06-20T22:17:54Z",
   "results": {
     "1": {
       "match": 1,
@@ -437,11 +437,11 @@
       "away": "Ivory Coast",
       "homeRef": "Germany",
       "awayRef": "Ivory Coast",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Germany",
+      "finishedAt": "2026-06-20T22:17:54Z"
     },
     "35": {
       "match": 35,
