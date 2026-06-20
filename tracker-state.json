@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T04:25:36Z",
+  "updatedAt": "2026-06-20T08:26:48Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -229,25 +229,25 @@
         "rank": 2
       },
       {
-        "team": "Türkiye",
-        "played": 1,
-        "won": 0,
+        "team": "Paraguay",
+        "played": 2,
+        "won": 1,
         "drawn": 0,
         "lost": 1,
-        "gf": 0,
-        "ga": 2,
+        "gf": 2,
+        "ga": 4,
         "gd": -2,
-        "pts": 0,
+        "pts": 3,
         "rank": 3
       },
       {
-        "team": "Paraguay",
-        "played": 1,
+        "team": "Türkiye",
+        "played": 2,
         "won": 0,
         "drawn": 0,
-        "lost": 1,
-        "gf": 1,
-        "ga": 4,
+        "lost": 2,
+        "gf": 0,
+        "ga": 3,
         "gd": -3,
         "pts": 0,
         "rank": 4
