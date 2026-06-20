@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T08:26:48Z",
+  "updatedAt": "2026-06-20T20:22:10Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -305,27 +305,27 @@
     ],
     "F": [
       {
-        "team": "Sweden",
-        "played": 1,
+        "team": "Netherlands",
+        "played": 2,
         "won": 1,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
-        "gf": 5,
-        "ga": 1,
+        "gf": 7,
+        "ga": 3,
         "gd": 4,
-        "pts": 3,
+        "pts": 4,
         "rank": 1
       },
       {
-        "team": "Netherlands",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 2,
-        "ga": 2,
+        "team": "Sweden",
+        "played": 2,
+        "won": 1,
+        "drawn": 0,
+        "lost": 1,
+        "gf": 6,
+        "ga": 6,
         "gd": 0,
-        "pts": 1,
+        "pts": 3,
         "rank": 2
       },
       {
