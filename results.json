@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-20T22:17:54Z",
+  "updatedAt": "2026-06-21T06:12:03Z",
   "results": {
     "1": {
       "match": 1,
@@ -450,11 +450,11 @@
       "away": "Curaçao",
       "homeRef": "Ecuador",
       "awayRef": "Curaçao",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-21T06:12:03Z"
     },
     "36": {
       "match": 36,
@@ -463,11 +463,11 @@
       "away": "Japan",
       "homeRef": "Tunisia",
       "awayRef": "Japan",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 4,
+      "status": "FINISHED",
+      "winner": "Japan",
+      "finishedAt": "2026-06-21T06:12:03Z"
     },
     "37": {
       "match": 37,
