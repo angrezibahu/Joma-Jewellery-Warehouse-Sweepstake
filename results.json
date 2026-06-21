@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T06:12:03Z",
+  "updatedAt": "2026-06-21T19:56:11Z",
   "results": {
     "1": {
       "match": 1,
@@ -476,11 +476,11 @@
       "away": "Saudi Arabia",
       "homeRef": "Spain",
       "awayRef": "Saudi Arabia",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 4,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Spain",
+      "finishedAt": "2026-06-21T19:56:11Z"
     },
     "38": {
       "match": 38,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T06:12:03Z",
+  "updatedAt": "2026-06-21T19:56:11Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -405,19 +405,19 @@
     ],
     "H": [
       {
-        "team": "Uruguay",
-        "played": 1,
-        "won": 0,
+        "team": "Spain",
+        "played": 2,
+        "won": 1,
         "drawn": 1,
         "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
+        "gf": 4,
+        "ga": 0,
+        "gd": 4,
+        "pts": 4,
         "rank": 1
       },
       {
-        "team": "Saudi Arabia",
+        "team": "Uruguay",
         "played": 1,
         "won": 0,
         "drawn": 1,
@@ -429,7 +429,7 @@
         "rank": 2
       },
       {
-        "team": "Spain",
+        "team": "Cape Verde",
         "played": 1,
         "won": 0,
         "drawn": 1,
@@ -441,14 +441,14 @@
         "rank": 3
       },
       {
-        "team": "Cape Verde",
-        "played": 1,
+        "team": "Saudi Arabia",
+        "played": 2,
         "won": 0,
         "drawn": 1,
-        "lost": 0,
-        "gf": 0,
-        "ga": 0,
-        "gd": 0,
+        "lost": 1,
+        "gf": 1,
+        "ga": 5,
+        "gd": -4,
         "pts": 1,
         "rank": 4
       }
