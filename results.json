@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T19:56:11Z",
+  "updatedAt": "2026-06-21T21:23:08Z",
   "results": {
     "1": {
       "match": 1,
@@ -489,11 +489,11 @@
       "away": "IR Iran",
       "homeRef": "Belgium",
       "awayRef": "IR Iran",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-21T21:23:08Z"
     },
     "39": {
       "match": 39,

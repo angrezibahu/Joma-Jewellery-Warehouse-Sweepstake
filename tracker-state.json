@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T19:56:11Z",
+  "updatedAt": "2026-06-21T21:23:08Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -355,6 +355,30 @@
     ],
     "G": [
       {
+        "team": "IR Iran",
+        "played": 2,
+        "won": 0,
+        "drawn": 2,
+        "lost": 0,
+        "gf": 2,
+        "ga": 2,
+        "gd": 0,
+        "pts": 2,
+        "rank": 1
+      },
+      {
+        "team": "Belgium",
+        "played": 2,
+        "won": 0,
+        "drawn": 2,
+        "lost": 0,
+        "gf": 1,
+        "ga": 1,
+        "gd": 0,
+        "pts": 2,
+        "rank": 2
+      },
+      {
         "team": "New Zealand",
         "played": 1,
         "won": 0,
@@ -364,34 +388,10 @@
         "ga": 2,
         "gd": 0,
         "pts": 1,
-        "rank": 1
-      },
-      {
-        "team": "IR Iran",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 2,
-        "ga": 2,
-        "gd": 0,
-        "pts": 1,
-        "rank": 2
-      },
-      {
-        "team": "Egypt",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
         "rank": 3
       },
       {
-        "team": "Belgium",
+        "team": "Egypt",
         "played": 1,
         "won": 0,
         "drawn": 1,
