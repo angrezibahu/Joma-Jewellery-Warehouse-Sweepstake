@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T21:23:08Z",
+  "updatedAt": "2026-06-22T05:22:02Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -355,6 +355,18 @@
     ],
     "G": [
       {
+        "team": "Egypt",
+        "played": 2,
+        "won": 1,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 4,
+        "ga": 2,
+        "gd": 2,
+        "pts": 4,
+        "rank": 1
+      },
+      {
         "team": "IR Iran",
         "played": 2,
         "won": 0,
@@ -364,7 +376,7 @@
         "ga": 2,
         "gd": 0,
         "pts": 2,
-        "rank": 1
+        "rank": 2
       },
       {
         "team": "Belgium",
@@ -376,29 +388,17 @@
         "ga": 1,
         "gd": 0,
         "pts": 2,
-        "rank": 2
-      },
-      {
-        "team": "New Zealand",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 2,
-        "ga": 2,
-        "gd": 0,
-        "pts": 1,
         "rank": 3
       },
       {
-        "team": "Egypt",
-        "played": 1,
+        "team": "New Zealand",
+        "played": 2,
         "won": 0,
         "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
+        "lost": 1,
+        "gf": 3,
+        "ga": 5,
+        "gd": -2,
         "pts": 1,
         "rank": 4
       }
@@ -418,26 +418,26 @@
       },
       {
         "team": "Uruguay",
-        "played": 1,
+        "played": 2,
         "won": 0,
-        "drawn": 1,
+        "drawn": 2,
         "lost": 0,
-        "gf": 1,
-        "ga": 1,
+        "gf": 3,
+        "ga": 3,
         "gd": 0,
-        "pts": 1,
+        "pts": 2,
         "rank": 2
       },
       {
         "team": "Cape Verde",
-        "played": 1,
+        "played": 2,
         "won": 0,
-        "drawn": 1,
+        "drawn": 2,
         "lost": 0,
-        "gf": 0,
-        "ga": 0,
+        "gf": 2,
+        "ga": 2,
         "gd": 0,
-        "pts": 1,
+        "pts": 2,
         "rank": 3
       },
       {

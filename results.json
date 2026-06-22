@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-21T21:23:08Z",
+  "updatedAt": "2026-06-22T05:22:02Z",
   "results": {
     "1": {
       "match": 1,
@@ -502,11 +502,11 @@
       "away": "Cape Verde",
       "homeRef": "Uruguay",
       "awayRef": "Cape Verde",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 2,
+      "awayScore": 2,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-22T05:22:02Z"
     },
     "40": {
       "match": 40,
@@ -515,11 +515,11 @@
       "away": "Egypt",
       "homeRef": "New Zealand",
       "awayRef": "Egypt",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Egypt",
+      "finishedAt": "2026-06-22T05:22:02Z"
     },
     "41": {
       "match": 41,
