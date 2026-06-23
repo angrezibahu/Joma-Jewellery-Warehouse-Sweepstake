@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T08:34:51Z",
+  "updatedAt": "2026-06-23T21:04:29Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -555,6 +555,18 @@
     ],
     "K": [
       {
+        "team": "Portugal",
+        "played": 2,
+        "won": 1,
+        "drawn": 1,
+        "lost": 0,
+        "gf": 6,
+        "ga": 1,
+        "gd": 5,
+        "pts": 4,
+        "rank": 1
+      },
+      {
         "team": "Colombia",
         "played": 1,
         "won": 1,
@@ -564,18 +576,6 @@
         "ga": 1,
         "gd": 2,
         "pts": 3,
-        "rank": 1
-      },
-      {
-        "team": "Portugal",
-        "played": 1,
-        "won": 0,
-        "drawn": 1,
-        "lost": 0,
-        "gf": 1,
-        "ga": 1,
-        "gd": 0,
-        "pts": 1,
         "rank": 2
       },
       {
@@ -592,13 +592,13 @@
       },
       {
         "team": "Uzbekistan",
-        "played": 1,
+        "played": 2,
         "won": 0,
         "drawn": 0,
-        "lost": 1,
+        "lost": 2,
         "gf": 1,
-        "ga": 3,
-        "gd": -2,
+        "ga": 8,
+        "gd": -7,
         "pts": 0,
         "rank": 4
       }
