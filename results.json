@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T04:14:50Z",
+  "updatedAt": "2026-06-23T08:34:51Z",
   "results": {
     "1": {
       "match": 1,
@@ -567,11 +567,11 @@
       "away": "Algeria",
       "homeRef": "Jordan",
       "awayRef": "Algeria",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 2,
+      "status": "FINISHED",
+      "winner": "Algeria",
+      "finishedAt": "2026-06-23T08:34:51Z"
     },
     "45": {
       "match": 45,

@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T04:14:50Z",
+  "updatedAt": "2026-06-23T08:34:51Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -529,25 +529,25 @@
         "rank": 2
       },
       {
-        "team": "Jordan",
-        "played": 1,
-        "won": 0,
+        "team": "Algeria",
+        "played": 2,
+        "won": 1,
         "drawn": 0,
         "lost": 1,
-        "gf": 1,
-        "ga": 3,
+        "gf": 2,
+        "ga": 4,
         "gd": -2,
-        "pts": 0,
+        "pts": 3,
         "rank": 3
       },
       {
-        "team": "Algeria",
-        "played": 1,
+        "team": "Jordan",
+        "played": 2,
         "won": 0,
         "drawn": 0,
-        "lost": 1,
-        "gf": 0,
-        "ga": 3,
+        "lost": 2,
+        "gf": 2,
+        "ga": 5,
         "gd": -3,
         "pts": 0,
         "rank": 4
