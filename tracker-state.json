@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T21:04:29Z",
+  "updatedAt": "2026-06-23T22:20:47Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -606,26 +606,26 @@
     "L": [
       {
         "team": "England",
-        "played": 1,
+        "played": 2,
         "won": 1,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
         "gf": 4,
         "ga": 2,
         "gd": 2,
-        "pts": 3,
+        "pts": 4,
         "rank": 1
       },
       {
         "team": "Ghana",
-        "played": 1,
+        "played": 2,
         "won": 1,
-        "drawn": 0,
+        "drawn": 1,
         "lost": 0,
         "gf": 1,
         "ga": 0,
         "gd": 1,
-        "pts": 3,
+        "pts": 4,
         "rank": 2
       },
       {
