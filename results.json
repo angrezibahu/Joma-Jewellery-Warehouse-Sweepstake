@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T05:06:57Z",
+  "updatedAt": "2026-06-24T21:39:38Z",
   "results": {
     "1": {
       "match": 1,
@@ -632,11 +632,11 @@
       "away": "Qatar",
       "homeRef": "Bosnia and Herzegovina",
       "awayRef": "Qatar",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Bosnia and Herzegovina",
+      "finishedAt": "2026-06-24T21:39:38Z"
     },
     "50": {
       "match": 50,
@@ -645,11 +645,11 @@
       "away": "Canada",
       "homeRef": "Switzerland",
       "awayRef": "Canada",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Switzerland",
+      "finishedAt": "2026-06-24T21:39:38Z"
     },
     "51": {
       "match": 51,
@@ -941,7 +941,7 @@
       "match": 73,
       "stage": "r32",
       "home": null,
-      "away": null,
+      "away": "Canada",
       "homeRef": "2A",
       "awayRef": "2B",
       "homeScore": null,
@@ -1096,7 +1096,7 @@
     "85": {
       "match": 85,
       "stage": "r32",
-      "home": null,
+      "home": "Switzerland",
       "away": null,
       "homeRef": "1B",
       "awayRef": "3E/F/G/I/J",
