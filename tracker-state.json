@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-23T22:20:47Z",
+  "updatedAt": "2026-06-24T05:06:57Z",
   "source": "auto",
   "eliminated": [],
   "stages": {
@@ -555,6 +555,18 @@
     ],
     "K": [
       {
+        "team": "Colombia",
+        "played": 2,
+        "won": 2,
+        "drawn": 0,
+        "lost": 0,
+        "gf": 4,
+        "ga": 1,
+        "gd": 3,
+        "pts": 6,
+        "rank": 1
+      },
+      {
         "team": "Portugal",
         "played": 2,
         "won": 1,
@@ -564,29 +576,17 @@
         "ga": 1,
         "gd": 5,
         "pts": 4,
-        "rank": 1
-      },
-      {
-        "team": "Colombia",
-        "played": 1,
-        "won": 1,
-        "drawn": 0,
-        "lost": 0,
-        "gf": 3,
-        "ga": 1,
-        "gd": 2,
-        "pts": 3,
         "rank": 2
       },
       {
         "team": "DR Congo",
-        "played": 1,
+        "played": 2,
         "won": 0,
         "drawn": 1,
-        "lost": 0,
+        "lost": 1,
         "gf": 1,
-        "ga": 1,
-        "gd": 0,
+        "ga": 2,
+        "gd": -1,
         "pts": 1,
         "rank": 3
       },
@@ -629,25 +629,25 @@
         "rank": 2
       },
       {
-        "team": "Panama",
-        "played": 1,
-        "won": 0,
+        "team": "Croatia",
+        "played": 2,
+        "won": 1,
         "drawn": 0,
         "lost": 1,
-        "gf": 0,
-        "ga": 1,
+        "gf": 3,
+        "ga": 4,
         "gd": -1,
-        "pts": 0,
+        "pts": 3,
         "rank": 3
       },
       {
-        "team": "Croatia",
-        "played": 1,
+        "team": "Panama",
+        "played": 2,
         "won": 0,
         "drawn": 0,
-        "lost": 1,
-        "gf": 2,
-        "ga": 4,
+        "lost": 2,
+        "gf": 0,
+        "ga": 2,
         "gd": -2,
         "pts": 0,
         "rank": 4
