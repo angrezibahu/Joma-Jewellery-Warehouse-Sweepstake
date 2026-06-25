@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-25T04:18:03Z",
+  "updatedAt": "2026-06-25T22:39:34Z",
   "results": {
     "1": {
       "match": 1,
@@ -710,11 +710,11 @@
       "away": "Germany",
       "homeRef": "Ecuador",
       "awayRef": "Germany",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Ecuador",
+      "finishedAt": "2026-06-25T22:39:34Z"
     },
     "56": {
       "match": 56,
@@ -723,11 +723,11 @@
       "away": "Ivory Coast",
       "homeRef": "Curaçao",
       "awayRef": "Ivory Coast",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 2,
+      "status": "FINISHED",
+      "winner": "Ivory Coast",
+      "finishedAt": "2026-06-25T22:39:34Z"
     },
     "57": {
       "match": 57,
@@ -966,7 +966,7 @@
     "75": {
       "match": 75,
       "stage": "r32",
-      "home": null,
+      "home": "Germany",
       "away": null,
       "homeRef": "1E",
       "awayRef": "3A/B/C/D/F",
@@ -992,7 +992,7 @@
     "77": {
       "match": 77,
       "stage": "r32",
-      "home": null,
+      "home": "Ivory Coast",
       "away": null,
       "homeRef": "2E",
       "awayRef": "2I",
