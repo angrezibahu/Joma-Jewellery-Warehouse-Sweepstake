@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-24T21:39:38Z",
+  "updatedAt": "2026-06-25T04:18:03Z",
   "results": {
     "1": {
       "match": 1,
@@ -658,11 +658,11 @@
       "away": "Haiti",
       "homeRef": "Morocco",
       "awayRef": "Haiti",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 4,
+      "awayScore": 2,
+      "status": "FINISHED",
+      "winner": "Morocco",
+      "finishedAt": "2026-06-25T04:18:03Z"
     },
     "52": {
       "match": 52,
@@ -671,11 +671,11 @@
       "away": "Brazil",
       "homeRef": "Scotland",
       "awayRef": "Brazil",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Brazil",
+      "finishedAt": "2026-06-25T04:18:03Z"
     },
     "53": {
       "match": 53,
@@ -684,11 +684,11 @@
       "away": "Mexico",
       "homeRef": "Czechia",
       "awayRef": "Mexico",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Mexico",
+      "finishedAt": "2026-06-25T04:18:03Z"
     },
     "54": {
       "match": 54,
@@ -697,11 +697,11 @@
       "away": "South Korea",
       "homeRef": "South Africa",
       "awayRef": "South Korea",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "South Africa",
+      "finishedAt": "2026-06-25T04:18:03Z"
     },
     "55": {
       "match": 55,
@@ -940,7 +940,7 @@
     "73": {
       "match": 73,
       "stage": "r32",
-      "home": null,
+      "home": "South Africa",
       "away": "Canada",
       "homeRef": "2A",
       "awayRef": "2B",
@@ -953,7 +953,7 @@
     "74": {
       "match": 74,
       "stage": "r32",
-      "home": null,
+      "home": "Brazil",
       "away": null,
       "homeRef": "1C",
       "awayRef": "2F",
@@ -980,7 +980,7 @@
       "match": 76,
       "stage": "r32",
       "home": null,
-      "away": null,
+      "away": "Morocco",
       "homeRef": "1F",
       "awayRef": "2C",
       "homeScore": null,
@@ -1018,7 +1018,7 @@
     "79": {
       "match": 79,
       "stage": "r32",
-      "home": null,
+      "home": "Mexico",
       "away": null,
       "homeRef": "1A",
       "awayRef": "3C/E/F/H/I",
