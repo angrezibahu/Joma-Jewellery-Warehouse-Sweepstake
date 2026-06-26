@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T05:16:52Z",
+  "updatedAt": "2026-06-26T21:36:36Z",
   "results": {
     "1": {
       "match": 1,
@@ -788,11 +788,11 @@
       "away": "France",
       "homeRef": "Norway",
       "awayRef": "France",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 4,
+      "status": "FINISHED",
+      "winner": "France",
+      "finishedAt": "2026-06-26T21:36:36Z"
     },
     "62": {
       "match": 62,
@@ -801,11 +801,11 @@
       "away": "Iraq",
       "homeRef": "Senegal",
       "awayRef": "Iraq",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 5,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Senegal",
+      "finishedAt": "2026-06-26T21:36:36Z"
     },
     "63": {
       "match": 63,
@@ -993,7 +993,7 @@
       "match": 77,
       "stage": "r32",
       "home": "Ivory Coast",
-      "away": null,
+      "away": "Norway",
       "homeRef": "2E",
       "awayRef": "2I",
       "homeScore": null,
@@ -1005,7 +1005,7 @@
     "78": {
       "match": 78,
       "stage": "r32",
-      "home": null,
+      "home": "France",
       "away": null,
       "homeRef": "1I",
       "awayRef": "3C/D/F/G/H",
