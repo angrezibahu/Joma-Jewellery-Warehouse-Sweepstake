@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-27T04:10:43Z",
+  "updatedAt": "2026-06-27T07:53:17Z",
   "results": {
     "1": {
       "match": 1,
@@ -840,11 +840,11 @@
       "away": "IR Iran",
       "homeRef": "Egypt",
       "awayRef": "IR Iran",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-27T07:53:17Z"
     },
     "66": {
       "match": 66,
@@ -853,11 +853,11 @@
       "away": "Belgium",
       "homeRef": "New Zealand",
       "awayRef": "Belgium",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 5,
+      "status": "FINISHED",
+      "winner": "Belgium",
+      "finishedAt": "2026-06-27T07:53:17Z"
     },
     "67": {
       "match": 67,
@@ -1044,7 +1044,7 @@
     "81": {
       "match": 81,
       "stage": "r32",
-      "home": null,
+      "home": "Belgium",
       "away": null,
       "homeRef": "1G",
       "awayRef": "3A/E/H/I/J",
@@ -1110,7 +1110,7 @@
       "match": 86,
       "stage": "r32",
       "home": "Australia",
-      "away": null,
+      "away": "Egypt",
       "homeRef": "2D",
       "awayRef": "2G",
       "homeScore": null,
