@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-26T21:36:36Z",
+  "updatedAt": "2026-06-27T04:10:43Z",
   "results": {
     "1": {
       "match": 1,
@@ -814,11 +814,11 @@
       "away": "Spain",
       "homeRef": "Uruguay",
       "awayRef": "Spain",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Spain",
+      "finishedAt": "2026-06-27T04:10:43Z"
     },
     "64": {
       "match": 64,
@@ -827,11 +827,11 @@
       "away": "Saudi Arabia",
       "homeRef": "Cape Verde",
       "awayRef": "Saudi Arabia",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-27T04:10:43Z"
     },
     "65": {
       "match": 65,
@@ -1070,7 +1070,7 @@
     "83": {
       "match": 83,
       "stage": "r32",
-      "home": null,
+      "home": "Spain",
       "away": null,
       "homeRef": "1H",
       "awayRef": "2J",
@@ -1123,7 +1123,7 @@
       "match": 87,
       "stage": "r32",
       "home": null,
-      "away": null,
+      "away": "Cape Verde",
       "homeRef": "1J",
       "awayRef": "2H",
       "homeScore": null,
