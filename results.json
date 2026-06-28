@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T05:24:05Z",
+  "updatedAt": "2026-06-28T22:09:36Z",
   "results": {
     "1": {
       "match": 1,
@@ -944,11 +944,11 @@
       "away": "Canada",
       "homeRef": "2A",
       "awayRef": "2B",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 0,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Canada",
+      "finishedAt": "2026-06-28T22:09:36Z"
     },
     "74": {
       "match": 74,
@@ -1148,7 +1148,7 @@
     "89": {
       "match": 89,
       "stage": "r16",
-      "home": null,
+      "home": "Canada",
       "away": null,
       "homeRef": "W73",
       "awayRef": "W75",
