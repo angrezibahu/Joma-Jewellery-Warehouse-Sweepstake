@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T00:11:15Z",
+  "updatedAt": "2026-06-28T05:24:05Z",
   "results": {
     "1": {
       "match": 1,
@@ -892,11 +892,11 @@
       "away": "Uzbekistan",
       "homeRef": "DR Congo",
       "awayRef": "Uzbekistan",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 3,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "DR Congo",
+      "finishedAt": "2026-06-28T05:24:05Z"
     },
     "70": {
       "match": 70,
@@ -905,11 +905,11 @@
       "away": "Portugal",
       "homeRef": "Colombia",
       "awayRef": "Portugal",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 0,
+      "awayScore": 0,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-28T05:24:05Z"
     },
     "71": {
       "match": 71,
@@ -918,11 +918,11 @@
       "away": "Argentina",
       "homeRef": "Jordan",
       "awayRef": "Argentina",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Argentina",
+      "finishedAt": "2026-06-28T05:24:05Z"
     },
     "72": {
       "match": 72,
@@ -931,11 +931,11 @@
       "away": "Austria",
       "homeRef": "Algeria",
       "awayRef": "Austria",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
+      "homeScore": 3,
+      "awayScore": 3,
+      "status": "FINISHED",
       "winner": null,
-      "finishedAt": null
+      "finishedAt": "2026-06-28T05:24:05Z"
     },
     "73": {
       "match": 73,
@@ -967,7 +967,7 @@
       "match": 75,
       "stage": "r32",
       "home": "Germany",
-      "away": null,
+      "away": "Bosnia and Herzegovina",
       "homeRef": "1E",
       "awayRef": "3A/B/C/D/F",
       "homeScore": null,
@@ -1006,7 +1006,7 @@
       "match": 78,
       "stage": "r32",
       "home": "France",
-      "away": null,
+      "away": "Paraguay",
       "homeRef": "1I",
       "awayRef": "3C/D/F/G/H",
       "homeScore": null,
@@ -1019,7 +1019,7 @@
       "match": 79,
       "stage": "r32",
       "home": "Mexico",
-      "away": null,
+      "away": "Ecuador",
       "homeRef": "1A",
       "awayRef": "3C/E/F/H/I",
       "homeScore": null,
@@ -1032,7 +1032,7 @@
       "match": 80,
       "stage": "r32",
       "home": "England",
-      "away": null,
+      "away": "DR Congo",
       "homeRef": "1L",
       "awayRef": "3E/H/I/J/K",
       "homeScore": null,
@@ -1045,7 +1045,7 @@
       "match": 81,
       "stage": "r32",
       "home": "Belgium",
-      "away": null,
+      "away": "Senegal",
       "homeRef": "1G",
       "awayRef": "3A/E/H/I/J",
       "homeScore": null,
@@ -1058,7 +1058,7 @@
       "match": 82,
       "stage": "r32",
       "home": "United States",
-      "away": null,
+      "away": "Sweden",
       "homeRef": "1D",
       "awayRef": "3B/E/F/I/J",
       "homeScore": null,
@@ -1071,7 +1071,7 @@
       "match": 83,
       "stage": "r32",
       "home": "Spain",
-      "away": null,
+      "away": "Austria",
       "homeRef": "1H",
       "awayRef": "2J",
       "homeScore": null,
@@ -1083,7 +1083,7 @@
     "84": {
       "match": 84,
       "stage": "r32",
-      "home": null,
+      "home": "Portugal",
       "away": "Croatia",
       "homeRef": "2K",
       "awayRef": "2L",
@@ -1097,7 +1097,7 @@
       "match": 85,
       "stage": "r32",
       "home": "Switzerland",
-      "away": null,
+      "away": "Algeria",
       "homeRef": "1B",
       "awayRef": "3E/F/G/I/J",
       "homeScore": null,
@@ -1122,7 +1122,7 @@
     "87": {
       "match": 87,
       "stage": "r32",
-      "home": null,
+      "home": "Argentina",
       "away": "Cape Verde",
       "homeRef": "1J",
       "awayRef": "2H",
@@ -1135,8 +1135,8 @@
     "88": {
       "match": 88,
       "stage": "r32",
-      "home": null,
-      "away": null,
+      "home": "Colombia",
+      "away": "Ghana",
       "homeRef": "1K",
       "awayRef": "3D/E/I/J/L",
       "homeScore": null,
