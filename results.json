@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-28T22:09:36Z",
+  "updatedAt": "2026-06-29T20:53:17Z",
   "results": {
     "1": {
       "match": 1,
@@ -957,11 +957,11 @@
       "away": "Japan",
       "homeRef": "1C",
       "awayRef": "2F",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Brazil",
+      "finishedAt": "2026-06-29T20:53:17Z"
     },
     "75": {
       "match": 75,
@@ -1161,7 +1161,7 @@
     "90": {
       "match": 90,
       "stage": "r16",
-      "home": null,
+      "home": "Brazil",
       "away": null,
       "homeRef": "W74",
       "awayRef": "W77",
