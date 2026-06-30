@@ -105,6 +105,31 @@ function resolvedName(m, side) {
     return resolved || (placeholder ? null : ref);
 }
 
+// A knockout that finished level on the day was settled in extra time / on
+// penalties. Returns the shootout info (winner + scores when known) or null.
+function shootout(rec) {
+    if (!rec || rec.status !== "FINISHED" || !rec.winner) return null;
+    if (Number(rec.homeScore) !== Number(rec.awayScore)) return null;
+    const hp = Number(rec.homePens);
+    const ap = Number(rec.awayPens);
+    const hasPenScore = Number.isFinite(hp) && Number.isFinite(ap);
+    return { homePens: hp, awayPens: ap, winner: rec.winner, hasPenScore };
+}
+
+// Plain-language note for a level knockout, from the fixture's point of view:
+// "Morocco won 3–2 on penalties" (or "after extra time" when pens aren't known).
+function shootoutNote(rec) {
+    const so = shootout(rec);
+    if (!so) return null;
+    const w = escapeHtml(so.winner);
+    if (so.hasPenScore) {
+        const wp = so.winner === rec.home ? so.homePens : so.awayPens;
+        const lp = so.winner === rec.home ? so.awayPens : so.homePens;
+        return `${w} won ${wp}–${lp} on penalties`;
+    }
+    return `${w} won after extra time`;
+}
+
 // Every scheduled match this team appears in, oldest first, with the result
 // worked out from their point of view.
 function teamMatches(name) {
@@ -124,7 +149,19 @@ function teamMatches(name) {
         const hasScore = finished && Number.isFinite(ts) && Number.isFinite(os);
         const outcome = hasScore ? (ts > os ? "W" : ts < os ? "L" : "D") : null;
 
-        out.push({ m, isHome, opponent, rec, finished, ts, os, hasScore, outcome });
+        // A level knockout settled in ET/pens: record who advanced (and this
+        // team's shootout score) so the row reflects it rather than a bare draw.
+        const so = shootout(rec);
+        let pens = null, advanced = null;
+        if (so) {
+            advanced = so.winner === name;
+            pens = so.hasPenScore
+                ? { for: isHome ? so.homePens : so.awayPens,
+                    against: isHome ? so.awayPens : so.homePens }
+                : { for: null, against: null };
+        }
+
+        out.push({ m, isHome, opponent, rec, finished, ts, os, hasScore, outcome, pens, advanced });
     }
     return out.sort((a, b) => a.m.match - b.m.match);
 }
@@ -181,12 +218,24 @@ function showTeamDetail(name) {
 
         let resHtml, rowCls;
         if (mt.hasScore) {
-            const cls = mt.outcome === "W" ? "win" : mt.outcome === "L" ? "loss" : "draw";
-            const label = mt.outcome === "W" ? "Won" : mt.outcome === "L" ? "Lost" : "Drew";
+            // A level knockout is shown as won/lost by whoever advanced (ET/pens),
+            // not as a draw, so the ball colour and label match the bracket.
+            let cls, label, penTag = "";
+            if (mt.pens) {
+                cls = mt.advanced ? "win" : "loss";
+                const how = mt.pens.for != null ? "on penalties" : "after extra time";
+                label = `${mt.advanced ? "Won" : "Lost"} ${how}`;
+                if (mt.pens.for != null) {
+                    penTag = `<span class="td-mpens">(pens ${mt.pens.for}–${mt.pens.against})</span>`;
+                }
+            } else {
+                cls = mt.outcome === "W" ? "win" : mt.outcome === "L" ? "loss" : "draw";
+                label = mt.outcome === "W" ? "Won" : mt.outcome === "L" ? "Lost" : "Drew";
+            }
             const knockedOut = eliminated && i === lastPlayedIdx;
             const ballCls = `td-ball ${cls}${knockedOut ? " knocked-out" : ""}`;
             const ballTitle = knockedOut ? `${label} — knocked out` : label;
-            resHtml = `<span class="${ballCls}" role="img" aria-label="${ballTitle}" title="${ballTitle}">⚽</span><span class="td-mscore">${mt.ts}–${mt.os}</span>`;
+            resHtml = `<span class="${ballCls}" role="img" aria-label="${ballTitle}" title="${ballTitle}">⚽</span><span class="td-mscore">${mt.ts}–${mt.os}</span>${penTag}`;
             rowCls = "played";
         } else {
             const due = now >= Date.parse(m.resultsDueUTC);
@@ -473,9 +522,12 @@ function renderFixtures() {
             // reach innerHTML as markup.
             const hs = rec.homeScore != null ? Number(rec.homeScore) : NaN;
             const as = rec.awayScore != null ? Number(rec.awayScore) : NaN;
+            const so = shootout(rec);
             let middle, statusClass;
             if (finished && Number.isFinite(hs) && Number.isFinite(as)) {
-                middle = `<span class="fx-score">${hs} – ${as}</span>`;
+                const penTag = so && so.hasPenScore
+                    ? `<span class="fx-pens">pens ${so.homePens}–${so.awayPens}</span>` : "";
+                middle = `<span class="fx-score">${hs} – ${as}</span>${penTag}`;
                 statusClass = "done";
             } else if (due) {
                 middle = `<span class="fx-vs">v</span>`;
@@ -486,7 +538,7 @@ function renderFixtures() {
             }
 
             const tag = m.stage === "group" ? `Group ${m.group}` : STAGE_LABEL_LONG[m.stage];
-            const note = finished ? "Full time"
+            const note = finished ? (shootoutNote(rec) || "Full time")
                 : due ? "Awaiting result"
                 : `${m.ukTime} BST`;
 

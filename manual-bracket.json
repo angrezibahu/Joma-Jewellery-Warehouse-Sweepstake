@@ -1,0 +1,6 @@
+{
+  "_comment": "Optional manual bracket corrections. Key = match number (string), value = the team that belongs in that knockout fixture's placeholder side. Use this when the automatic third-placed allocation picks a valid-but-different permutation from FIFA's official Round-of-32 bracket, so the real matchup (and its live result) can be tracked. These pin the placeholder side only; concrete qualified sides are untouched.",
+  "75": "Paraguay",
+  "78": "Sweden",
+  "82": "Bosnia and Herzegovina"
+}
