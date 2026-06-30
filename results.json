@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-29T20:53:17Z",
+  "updatedAt": "2026-06-30T05:12:38Z",
   "results": {
     "1": {
       "match": 1,
@@ -983,11 +983,11 @@
       "away": "Morocco",
       "homeRef": "1F",
       "awayRef": "2C",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Morocco",
+      "finishedAt": "2026-06-30T05:12:38Z"
     },
     "77": {
       "match": 77,
@@ -1174,7 +1174,7 @@
     "91": {
       "match": 91,
       "stage": "r16",
-      "home": null,
+      "home": "Morocco",
       "away": null,
       "homeRef": "W76",
       "awayRef": "W78",
