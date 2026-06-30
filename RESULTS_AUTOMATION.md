@@ -10,7 +10,8 @@ to the repo, so nobody has to sit at the admin panel during the tournament.
 | `schedule.json` | The internal calendar: all 104 World Cup 2026 matches with UK (BST) and UTC kickoff times, venues, group/stage, and a `resultsDueUTC` for each (kickoff **+ 4 hours** ≈ 2h play + 2h buffer for extra time / penalties). |
 | `results.json` | Per-match scores + winners. Written automatically by the workflow. |
 | `tracker-state.json` | Derived tournament state the website reads: who's eliminated, how far each team got (which drives the bracket), and group standings. |
-| `manual-results.json` | Optional manual overrides (see below). |
+| `manual-results.json` | Optional manual score overrides (see below). |
+| `manual-bracket.json` | Optional manual knockout matchup corrections (see below). |
 | `scripts/update_results.py` | The engine: fetch scores → record them → derive standings, qualification (top 2 + best 8 third-placed) and the whole knockout bracket. |
 | `.github/workflows/update-results.yml` | Runs the engine hourly during the tournament and commits any changes. |
 
@@ -63,6 +64,35 @@ For a knockout that finished level after 90 mins, the API's winner flag decides
 who progresses. For a hand-entered knockout score that finished level (decided
 in extra time / on penalties), add the winning team's name after a colon, e.g.
 `"1-1:France"` — the name must match one of the two sides of that match.
+
+## Manual bracket corrections
+
+A team finishing **third** in its group only qualifies if it's one of the best 8
+of 12, and which Round-of-32 slot each qualifying third goes into follows a fixed
+FIFA table. The engine works out *a* valid allocation from the `3A/B/C/..` slot
+constraints in `schedule.json`, but several allocations can satisfy those
+constraints — so it can occasionally pick a different (still valid) permutation
+than FIFA's official bracket. When that happens, the real fixture (say *Germany v
+Paraguay*) never matches the live feed and the match stays stuck on **"Awaiting
+result"** even though it's been played.
+
+`manual-bracket.json` fixes this by pinning the correct team into a knockout
+fixture's placeholder side. Keys are the match number (string) from
+`schedule.json`; values are the canonical team name:
+
+```json
+{
+  "75": "Paraguay",
+  "78": "Sweden",
+  "82": "Bosnia and Herzegovina"
+}
+```
+
+A pin only ever fills a fixture's **placeholder** side (a `2A` / `3A/B/..` /
+`W73` slot), never a concrete qualified team, and it's applied **before** scores
+are fetched so the corrected matchup's live result flows in automatically. It
+won't overwrite a side that already has a recorded result (that's a conflict to
+resolve by hand).
 
 ## A note on tiebreakers
 

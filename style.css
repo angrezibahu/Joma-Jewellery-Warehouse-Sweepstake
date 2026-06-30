@@ -1252,6 +1252,7 @@ footer .small {
 }
 .fx-mid { text-align: center; min-width: 56px; }
 .fx-score { font-size: 1.25rem; font-weight: 700; color: var(--gold); white-space: nowrap; }
+.fx-pens { display: block; font-size: 0.66rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
 .fx-vs { color: var(--text-muted); font-weight: 600; }
 .fx-ko { font-weight: 700; color: var(--text-secondary); }
 .fx-foot {
@@ -1393,6 +1394,7 @@ footer .small {
 }
 .td-mres { display: flex; align-items: center; gap: 0.4rem; justify-self: end; }
 .td-mscore { font-weight: 800; color: var(--text-primary); white-space: nowrap; }
+.td-mpens { font-size: 0.7rem; font-weight: 700; color: var(--text-muted); white-space: nowrap; }
 .td-mko { font-size: 0.78rem; font-weight: 700; color: var(--text-muted); }
 /* Per-match football, with a halo coloured by the result. */
 .td-ball {

@@ -35,6 +35,7 @@ SCHEDULE = os.path.join(ROOT, "schedule.json")
 RESULTS = os.path.join(ROOT, "results.json")
 STATE = os.path.join(ROOT, "tracker-state.json")
 MANUAL = os.path.join(ROOT, "manual-results.json")
+BRACKET = os.path.join(ROOT, "manual-bracket.json")
 
 # Primary source: openfootball public-domain raw JSON (no key needed).
 OPENFOOTBALL_URL = (os.environ.get("OPENFOOTBALL_URL") or
@@ -166,7 +167,11 @@ def fetch_openfootball_matches():
         if hs < 0 or as_ < 0 or hs > 99 or as_ > 99:
             continue
         pens = sc.get("p")
-        if isinstance(pens, list) and len(pens) == 2 and pens[0] != pens[1]:
+        home_pens = away_pens = None
+        if (isinstance(pens, list) and len(pens) == 2
+                and isinstance(pens[0], int) and isinstance(pens[1], int)
+                and pens[0] != pens[1]):
+            home_pens, away_pens = pens[0], pens[1]
             winner = "HOME_TEAM" if pens[0] > pens[1] else "AWAY_TEAM"
         elif hs > as_:
             winner = "HOME_TEAM"
@@ -180,6 +185,9 @@ def fetch_openfootball_matches():
             "homeScore": hs,
             "awayScore": as_,
             "winner": winner,  # HOME_TEAM/AWAY_TEAM/DRAW
+            # penalty shootout scores (home/away orientation), when it went there
+            "homePens": home_pens,
+            "awayPens": away_pens,
             "utcDate": _openfootball_utc(m.get("date"), m.get("time")),
         })
     print(f"openfootball returned {len(out)} finished matches.")
@@ -220,10 +228,77 @@ def fetch_api_matches():
     return out
 
 
-def apply_results(schedule, results):
-    """Fill results.json for any match now due, from manual file then the API."""
+def _valid_teams(schedule):
     valid = {m["home"] for m in schedule if not m["homePlaceholder"]}
     valid |= {m["away"] for m in schedule if not m["awayPlaceholder"]}
+    return valid
+
+
+def apply_bracket_pins(schedule, results):
+    """Honour manual-bracket.json: pin a knockout fixture's placeholder side to a
+    specific team.
+
+    The automatic third-placed allocation finds *a* valid assignment of the eight
+    qualifying third-placed teams to their Round-of-32 slots, but several
+    permutations can satisfy the "3A/B/C/.." group constraints, so it may not match
+    FIFA's official bracket. When it doesn't, the real fixture (e.g. Germany v
+    Paraguay) never matches the live feed and stays stuck on "Awaiting result".
+    A pin lets us nail the correct opponent into the placeholder side so the feed
+    result flows in normally. Keys are the match number (string); values are the
+    canonical team name that belongs in that fixture's placeholder side.
+    """
+    pins = load(BRACKET, {}) or {}
+    valid = _valid_teams(schedule)
+    by_no = {m["match"]: m for m in schedule}
+    applied = 0
+    for k, raw in pins.items():
+        if not k.isdigit() or not isinstance(raw, str):
+            continue
+        m = by_no.get(int(k))
+        rec = results["results"].get(k)
+        if not m or not rec:
+            print(f"Bracket pin for match {k}: no such fixture; skipping.")
+            continue
+        team = canon(raw, valid)
+        if not team:
+            print(f"Bracket pin for match {k}: unknown team {raw!r}; skipping.")
+            continue
+        # Choose which side to pin: prefer a third-placed ("3..") placeholder,
+        # else the first placeholder side. A pin only ever fills a placeholder
+        # slot, never a concrete qualified team.
+        target = None
+        for side, ph, ref in (("home", m["homePlaceholder"], m["home"]),
+                              ("away", m["awayPlaceholder"], m["away"])):
+            if ph and isinstance(ref, str) and ref.startswith("3"):
+                target = side
+                break
+        if target is None:
+            for side, ph in (("home", m["homePlaceholder"]),
+                            ("away", m["awayPlaceholder"])):
+                if ph:
+                    target = side
+                    break
+        if target is None:
+            print(f"Bracket pin for match {k}: fixture has no placeholder side; skipping.")
+            continue
+        if rec.get(target) == team:
+            continue
+        if rec.get("status") == "FINISHED":
+            # Don't silently rewrite a side that already has a recorded result;
+            # that's a data conflict for a human to resolve.
+            print(f"Bracket pin for match {k}: {target} already FINISHED as "
+                  f"{rec.get(target)!r}; not overwriting with {team!r}.")
+            continue
+        rec[target] = team
+        applied += 1
+    if applied:
+        print(f"Applied {applied} bracket pin(s).")
+    return applied
+
+
+def apply_results(schedule, results):
+    """Fill results.json for any match now due, from manual file then the API."""
+    valid = _valid_teams(schedule)
 
     # openfootball is the primary feed; fall back to football-data.org only if it
     # yields nothing and a token is configured. Both return the same shape.
@@ -247,16 +322,29 @@ def apply_results(schedule, results):
     for m in schedule:
         no = str(m["match"])
         rec = results["results"][no]
-        if rec.get("status") == "FINISHED":
-            continue
 
         home = rec.get("home")
         away = rec.get("away")
 
         # Look up the feed result early so we can decide whether to bypass the
-        # resultsDueUTC gate below.
+        # resultsDueUTC gate below (and so we can backfill pens onto a match that
+        # already finished level on a shootout).
         ob_candidates = api_idx.get(frozenset((home, away)), []) if (home and away) else []
         ob_result = _closest_api_match(ob_candidates, m.get("kickoffUTC"))
+
+        if rec.get("status") == "FINISHED":
+            # Backfill penalty scores for a knockout that finished level and was
+            # decided on penalties but predates penalty capture / had no pens yet.
+            if (rec.get("homeScore") == rec.get("awayScore") and rec.get("winner")
+                    and rec.get("homePens") is None and ob_result):
+                hp, ap = ob_result.get("homePens"), ob_result.get("awayPens")
+                if hp is not None and ap is not None:
+                    if canon(ob_result["home"], valid) == home:
+                        rec["homePens"], rec["awayPens"] = hp, ap
+                    else:
+                        rec["homePens"], rec["awayPens"] = ap, hp
+                    changed += 1
+            continue
 
         due = parse_iso(m["resultsDueUTC"])
         # openfootball only publishes ft scores for genuinely completed games, so
@@ -290,10 +378,13 @@ def apply_results(schedule, results):
 
         # 2) openfootball / API result (only once both teams are known)
         if ob_result:
+            hp, ap = ob_result.get("homePens"), ob_result.get("awayPens")
             if canon(ob_result["home"], valid) == home:
-                _set_result(rec, ob_result["homeScore"], ob_result["awayScore"], ob_result.get("winner"))
+                _set_result(rec, ob_result["homeScore"], ob_result["awayScore"],
+                            ob_result.get("winner"), home_pens=hp, away_pens=ap)
             else:
-                _set_result(rec, ob_result["awayScore"], ob_result["homeScore"], ob_result.get("winner"), flip=True)
+                _set_result(rec, ob_result["awayScore"], ob_result["homeScore"],
+                            ob_result.get("winner"), flip=True, home_pens=ap, away_pens=hp)
             changed += 1
 
     print(f"Updated {changed} match result(s).")
@@ -323,7 +414,7 @@ def _closest_api_match(candidates, kickoff_iso):
 
 
 def _set_result(rec, home_score, away_score, api_winner=None, flip=False,
-                manual_winner=None):
+                manual_winner=None, home_pens=None, away_pens=None):
     rec["homeScore"] = home_score
     rec["awayScore"] = away_score
     rec["status"] = "FINISHED"
@@ -342,6 +433,14 @@ def _set_result(rec, home_score, away_score, api_winner=None, flip=False,
             rec["winner"] = rec.get("home") if home_is else rec.get("away")
         else:
             rec["winner"] = None  # genuine group-stage draw
+    # Penalty shootout scores are only meaningful for a level result; keep them in
+    # home/away orientation, and never leave stale pens on a non-level score.
+    if home_score == away_score and home_pens is not None and away_pens is not None:
+        rec["homePens"] = home_pens
+        rec["awayPens"] = away_pens
+    else:
+        rec.pop("homePens", None)
+        rec.pop("awayPens", None)
 
 
 # --------------------------------------------------------------------------
@@ -563,6 +662,9 @@ def main():
     prev_state = load(STATE, {})
     prev_results = json.loads(json.dumps(results))
 
+    # Correct any mis-allocated knockout fixtures first, so the live feed result
+    # for the real matchup (e.g. Germany v Paraguay) can be picked up below.
+    apply_bracket_pins(schedule, results)
     changed = apply_results(schedule, results)
 
     # derive_state also fills concrete teams into knockout fixtures as earlier

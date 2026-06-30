@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T05:12:38Z",
+  "updatedAt": "2026-06-30T05:57:00Z",
   "results": {
     "1": {
       "match": 1,
@@ -967,14 +967,16 @@
       "match": 75,
       "stage": "r32",
       "home": "Germany",
-      "away": "Bosnia and Herzegovina",
+      "away": "Paraguay",
       "homeRef": "1E",
       "awayRef": "3A/B/C/D/F",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Paraguay",
+      "finishedAt": "2026-06-30T05:57:00Z",
+      "homePens": 3,
+      "awayPens": 4
     },
     "76": {
       "match": 76,
@@ -987,7 +989,9 @@
       "awayScore": 1,
       "status": "FINISHED",
       "winner": "Morocco",
-      "finishedAt": "2026-06-30T05:12:38Z"
+      "finishedAt": "2026-06-30T05:12:38Z",
+      "homePens": 2,
+      "awayPens": 3
     },
     "77": {
       "match": 77,
@@ -1006,7 +1010,7 @@
       "match": 78,
       "stage": "r32",
       "home": "France",
-      "away": "Paraguay",
+      "away": "Sweden",
       "homeRef": "1I",
       "awayRef": "3C/D/F/G/H",
       "homeScore": null,
@@ -1058,7 +1062,7 @@
       "match": 82,
       "stage": "r32",
       "home": "United States",
-      "away": "Sweden",
+      "away": "Bosnia and Herzegovina",
       "homeRef": "1D",
       "awayRef": "3B/E/F/I/J",
       "homeScore": null,
@@ -1149,7 +1153,7 @@
       "match": 89,
       "stage": "r16",
       "home": "Canada",
-      "away": null,
+      "away": "Paraguay",
       "homeRef": "W73",
       "awayRef": "W75",
       "homeScore": null,
