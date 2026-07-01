@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30T21:01:24Z",
+  "updatedAt": "2026-07-01T00:16:34Z",
   "source": "auto",
   "eliminated": [
     "Curaçao",
@@ -19,6 +19,7 @@
     "Scotland",
     "South Africa",
     "South Korea",
+    "Sweden",
     "Tunisia",
     "Türkiye",
     "Uruguay",
@@ -42,7 +43,7 @@
     "Ecuador": "r32",
     "Egypt": "r32",
     "England": "r32",
-    "France": "r32",
+    "France": "r16",
     "Germany": "r32",
     "Ghana": "r32",
     "Haiti": "groups",
