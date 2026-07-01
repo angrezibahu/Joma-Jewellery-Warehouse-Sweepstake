@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-07-01T08:52:37Z",
+  "updatedAt": "2026-07-01T18:05:07Z",
   "source": "auto",
   "eliminated": [
     "Curaçao",
     "Czechia",
+    "DR Congo",
     "Ecuador",
     "Germany",
     "Haiti",
@@ -43,7 +44,7 @@
     "DR Congo": "r32",
     "Ecuador": "r32",
     "Egypt": "r32",
-    "England": "r32",
+    "England": "r16",
     "France": "r16",
     "Germany": "r32",
     "Ghana": "r32",
