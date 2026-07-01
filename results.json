@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T00:16:34Z",
+  "updatedAt": "2026-07-01T08:52:37Z",
   "results": {
     "1": {
       "match": 1,
@@ -1026,11 +1026,11 @@
       "away": "Ecuador",
       "homeRef": "1A",
       "awayRef": "3C/E/F/H/I",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Mexico",
+      "finishedAt": "2026-07-01T08:52:37Z"
     },
     "80": {
       "match": 80,
@@ -1191,7 +1191,7 @@
     "92": {
       "match": 92,
       "stage": "r16",
-      "home": null,
+      "home": "Mexico",
       "away": null,
       "homeRef": "W79",
       "awayRef": "W80",

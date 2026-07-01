@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-07-01T00:16:34Z",
+  "updatedAt": "2026-07-01T08:52:37Z",
   "source": "auto",
   "eliminated": [
     "Curaçao",
     "Czechia",
+    "Ecuador",
     "Germany",
     "Haiti",
     "IR Iran",
@@ -52,7 +53,7 @@
     "Ivory Coast": "r32",
     "Japan": "r32",
     "Jordan": "groups",
-    "Mexico": "r32",
+    "Mexico": "r16",
     "Morocco": "r16",
     "Netherlands": "r32",
     "New Zealand": "groups",
