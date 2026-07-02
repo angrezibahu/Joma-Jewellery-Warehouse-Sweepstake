@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T00:16:33Z",
+  "updatedAt": "2026-07-02T05:04:21Z",
   "results": {
     "1": {
       "match": 1,
@@ -1065,11 +1065,11 @@
       "away": "Bosnia and Herzegovina",
       "homeRef": "1D",
       "awayRef": "3B/E/F/I/J",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "United States",
+      "finishedAt": "2026-07-02T05:04:21Z"
     },
     "83": {
       "match": 83,
@@ -1218,7 +1218,7 @@
       "match": 94,
       "stage": "r16",
       "home": "Belgium",
-      "away": null,
+      "away": "United States",
       "homeRef": "W81",
       "awayRef": "W82",
       "homeScore": null,
