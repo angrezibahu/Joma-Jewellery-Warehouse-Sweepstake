@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-01T18:05:07Z",
+  "updatedAt": "2026-07-02T00:16:33Z",
   "results": {
     "1": {
       "match": 1,
@@ -1052,11 +1052,11 @@
       "away": "Senegal",
       "homeRef": "1G",
       "awayRef": "3A/E/H/I/J",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 3,
+      "awayScore": 2,
+      "status": "FINISHED",
+      "winner": "Belgium",
+      "finishedAt": "2026-07-02T00:16:33Z"
     },
     "82": {
       "match": 82,
@@ -1217,7 +1217,7 @@
     "94": {
       "match": 94,
       "stage": "r16",
-      "home": null,
+      "home": "Belgium",
       "away": null,
       "homeRef": "W81",
       "awayRef": "W82",
