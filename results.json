@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-02T22:14:16Z",
+  "updatedAt": "2026-07-03T04:50:05Z",
   "results": {
     "1": {
       "match": 1,
@@ -1091,11 +1091,11 @@
       "away": "Croatia",
       "homeRef": "2K",
       "awayRef": "2L",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Portugal",
+      "finishedAt": "2026-07-03T04:50:05Z"
     },
     "85": {
       "match": 85,
@@ -1205,7 +1205,7 @@
       "match": 93,
       "stage": "r16",
       "home": "Spain",
-      "away": null,
+      "away": "Portugal",
       "homeRef": "W83",
       "awayRef": "W84",
       "homeScore": null,

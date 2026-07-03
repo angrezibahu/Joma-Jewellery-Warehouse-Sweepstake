@@ -1,9 +1,10 @@
 {
-  "updatedAt": "2026-07-02T22:14:16Z",
+  "updatedAt": "2026-07-03T04:50:05Z",
   "source": "auto",
   "eliminated": [
     "Austria",
     "Bosnia and Herzegovina",
+    "Croatia",
     "Curaçao",
     "Czechia",
     "DR Congo",
@@ -64,7 +65,7 @@
     "Norway": "r16",
     "Panama": "groups",
     "Paraguay": "r16",
-    "Portugal": "r32",
+    "Portugal": "r16",
     "Qatar": "groups",
     "Saudi Arabia": "groups",
     "Scotland": "groups",
