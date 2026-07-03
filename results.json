@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T04:50:05Z",
+  "updatedAt": "2026-07-03T08:15:54Z",
   "results": {
     "1": {
       "match": 1,
@@ -1104,11 +1104,11 @@
       "away": "Algeria",
       "homeRef": "1B",
       "awayRef": "3E/F/G/I/J",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 0,
+      "status": "FINISHED",
+      "winner": "Switzerland",
+      "finishedAt": "2026-07-03T08:15:54Z"
     },
     "86": {
       "match": 86,
@@ -1243,7 +1243,7 @@
     "96": {
       "match": 96,
       "stage": "r16",
-      "home": null,
+      "home": "Switzerland",
       "away": null,
       "homeRef": "W85",
       "awayRef": "W87",

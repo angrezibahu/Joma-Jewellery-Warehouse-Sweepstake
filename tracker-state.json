@@ -1,7 +1,8 @@
 {
-  "updatedAt": "2026-07-03T04:50:05Z",
+  "updatedAt": "2026-07-03T08:15:54Z",
   "source": "auto",
   "eliminated": [
+    "Algeria",
     "Austria",
     "Bosnia and Herzegovina",
     "Croatia",
@@ -74,7 +75,7 @@
     "South Korea": "groups",
     "Spain": "r16",
     "Sweden": "r32",
-    "Switzerland": "r32",
+    "Switzerland": "r16",
     "Tunisia": "groups",
     "Türkiye": "groups",
     "United States": "r16",
