@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-03T08:15:54Z",
+  "updatedAt": "2026-07-03T22:11:27Z",
   "results": {
     "1": {
       "match": 1,
@@ -1117,11 +1117,13 @@
       "away": "Egypt",
       "homeRef": "2D",
       "awayRef": "2G",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 1,
+      "awayScore": 1,
+      "status": "FINISHED",
+      "winner": "Egypt",
+      "finishedAt": "2026-07-03T22:11:27Z",
+      "homePens": 2,
+      "awayPens": 4
     },
     "87": {
       "match": 87,
@@ -1230,7 +1232,7 @@
     "95": {
       "match": 95,
       "stage": "r16",
-      "home": null,
+      "home": "Egypt",
       "away": null,
       "homeRef": "W86",
       "awayRef": "W88",

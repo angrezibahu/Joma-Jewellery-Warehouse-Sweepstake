@@ -1,8 +1,9 @@
 {
-  "updatedAt": "2026-07-03T08:15:54Z",
+  "updatedAt": "2026-07-03T22:11:27Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
+    "Australia",
     "Austria",
     "Bosnia and Herzegovina",
     "Croatia",
@@ -48,7 +49,7 @@
     "Czechia": "groups",
     "DR Congo": "r32",
     "Ecuador": "r32",
-    "Egypt": "r32",
+    "Egypt": "r16",
     "England": "r16",
     "France": "r16",
     "Germany": "r32",
