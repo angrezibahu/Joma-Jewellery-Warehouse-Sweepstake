@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T04:59:46Z",
+  "updatedAt": "2026-07-07T20:53:40Z",
   "results": {
     "1": {
       "match": 1,
@@ -1236,11 +1236,11 @@
       "away": "Argentina",
       "homeRef": "W86",
       "awayRef": "W87",
-      "homeScore": null,
-      "awayScore": null,
-      "status": "SCHEDULED",
-      "winner": null,
-      "finishedAt": null
+      "homeScore": 2,
+      "awayScore": 3,
+      "status": "FINISHED",
+      "winner": "Argentina",
+      "finishedAt": "2026-07-07T20:53:40Z"
     },
     "96": {
       "match": 96,
@@ -1297,7 +1297,7 @@
     "100": {
       "match": 100,
       "stage": "qf",
-      "home": null,
+      "home": "Argentina",
       "away": null,
       "homeRef": "W95",
       "awayRef": "W96",
