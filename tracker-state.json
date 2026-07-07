@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-06T22:20:00Z",
+  "updatedAt": "2026-07-07T04:59:46Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
@@ -37,6 +37,7 @@
     "Sweden",
     "Tunisia",
     "Türkiye",
+    "United States",
     "Uruguay",
     "Uzbekistan"
   ],
@@ -45,7 +46,7 @@
     "Argentina": "r16",
     "Australia": "r32",
     "Austria": "r32",
-    "Belgium": "r16",
+    "Belgium": "qf",
     "Bosnia and Herzegovina": "r32",
     "Brazil": "r16",
     "Canada": "r16",
