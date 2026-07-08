@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-07T20:53:40Z",
+  "updatedAt": "2026-07-08T00:05:43Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
@@ -9,6 +9,7 @@
     "Brazil",
     "Canada",
     "Cape Verde",
+    "Colombia",
     "Croatia",
     "Curaçao",
     "Czechia",
@@ -85,7 +86,7 @@
     "South Korea": "groups",
     "Spain": "qf",
     "Sweden": "r32",
-    "Switzerland": "r16",
+    "Switzerland": "qf",
     "Tunisia": "groups",
     "Türkiye": "groups",
     "United States": "r16",
