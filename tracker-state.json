@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-08T00:05:43Z",
+  "updatedAt": "2026-07-09T23:19:13Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
@@ -25,6 +25,7 @@
     "Japan",
     "Jordan",
     "Mexico",
+    "Morocco",
     "Netherlands",
     "New Zealand",
     "Panama",
@@ -61,7 +62,7 @@
     "Ecuador": "r32",
     "Egypt": "r16",
     "England": "qf",
-    "France": "qf",
+    "France": "sf",
     "Germany": "r32",
     "Ghana": "r32",
     "Haiti": "groups",
