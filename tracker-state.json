@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-12T06:41:34Z",
+  "updatedAt": "2026-07-14T21:07:01Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
@@ -17,6 +17,7 @@
     "DR Congo",
     "Ecuador",
     "Egypt",
+    "France",
     "Germany",
     "Ghana",
     "Haiti",
@@ -88,7 +89,7 @@
     "Senegal": "r32",
     "South Africa": "r32",
     "South Korea": "groups",
-    "Spain": "sf",
+    "Spain": "final",
     "Sweden": "r32",
     "Switzerland": "qf",
     "Tunisia": "groups",
