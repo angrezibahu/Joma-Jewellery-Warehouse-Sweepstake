@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-07-14T21:07:01Z",
+  "updatedAt": "2026-07-15T21:09:04Z",
   "source": "auto",
   "eliminated": [
     "Algeria",
@@ -17,6 +17,7 @@
     "DR Congo",
     "Ecuador",
     "Egypt",
+    "England",
     "France",
     "Germany",
     "Ghana",
@@ -50,7 +51,7 @@
   ],
   "stages": {
     "Algeria": "r32",
-    "Argentina": "sf",
+    "Argentina": "final",
     "Australia": "r32",
     "Austria": "r32",
     "Belgium": "qf",
